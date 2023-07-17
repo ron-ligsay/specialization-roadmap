@@ -11,7 +11,7 @@ namespace specialization_roadmap
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public float Progress { get; set; }
+        public double Progress { get; set; }
         public bool status { get; set; }
 
     }
