@@ -36,9 +36,9 @@ namespace specialization_roadmap
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
-            SpecializationWindow specializationWindow = new SpecializationWindow();
-            specializationWindow.Show();
-            this.Close();
+            // SpecializationWindow specializationWindow = new SpecializationWindow();
+            // specializationWindow.Show();
+            // this.Close();
         }
     }
 
