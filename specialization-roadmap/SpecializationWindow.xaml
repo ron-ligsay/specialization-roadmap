@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="SpecializationWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="title" Content="Specialization Title" HorizontalAlignment="Center" Height="41" Margin="0,26,0,0" VerticalAlignment="Top" Width="205" FontSize="24"/>
+        <Label x:Name="subTitle" Content="Start your roadmap" HorizontalAlignment="Center" Height="41" Margin="0,67,0,0" VerticalAlignment="Top" Width="170" FontSize="18"/>
+        <Button x:Name="Roadmap_01" Content="" HorizontalAlignment="Left" Height="53" Margin="38,139,0,0" VerticalAlignment="Top" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
+
     </Grid>
 </Window>

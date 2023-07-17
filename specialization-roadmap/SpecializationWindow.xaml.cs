@@ -35,5 +35,10 @@ namespace specialization_roadmap
             
             track.Add(special_frontend);
         }
+
+        private void Specialization_01_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
