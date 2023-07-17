@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Label x:Name="title" Content="Specialization Course" HorizontalAlignment="Center" Height="41" Margin="0,34,0,0" VerticalAlignment="Top" Width="245" FontSize="24"/>
 
     </Grid>
 </Window>
