@@ -24,16 +24,15 @@ namespace specialization_roadmap
         {
             InitializeComponent();
 
-            List<specialization> track = new List<specialization>();
+            List<SpecializationTrack> track = new List<SpecializationTrack>();
 
-            specialization special_frontend = new specialization();
+            SpecializationTrack special_frontend = new SpecializationTrack();
             special_frontend.Id = 1000;
             special_frontend.Title = "Front-End Developer";
             special_frontend.Description = "Designs and creates the look of a website.";
             special_frontend.Progress = 0.0;
-            special_frontend.status = false;
-
-
+            special_frontend.Status = false;
+            
             track.Add(special_frontend);
         }
     }
