@@ -28,17 +28,35 @@ namespace specialization_roadmap
 
             SpecializationTrack special_frontend = new SpecializationTrack();
             special_frontend.Id = 1000;
-            special_frontend.Title = "Front-End Developer";
+            special_frontend.Name = "Front-End Developer";
             special_frontend.Description = "Designs and creates the look of a website.";
             special_frontend.Progress = 0.0;
             special_frontend.Status = false;
             
             track.Add(special_frontend);
+
+            this.DataContext = special_frontend;
+
         }
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
 
         }
+    }
+    
+    class Specialization_Test : ISpecialization
+    {
+        public Specialization_Test()
+        {
+            
+           
+        }
+
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public double Progress { get; set; }
+        public bool Status { get; set; }
     }
 }
