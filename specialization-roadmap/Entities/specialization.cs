@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Entities
 {
-    public class specialization
+    public class specialization : ICourse
     {
         public specialization()
         {
