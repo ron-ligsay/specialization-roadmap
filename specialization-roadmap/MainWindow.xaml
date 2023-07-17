@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="title" Content="Specialization Course" HorizontalAlignment="Center" Height="41" Margin="0,34,0,0" VerticalAlignment="Top" Width="245" FontSize="24"/>
+        <Label x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
+        <Label x:Name="subtitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
+        <Label x:Name="subtitle_Copy" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="38,103,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
+        <Label x:Name="subtitle_Copy1" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="38,0,0,0" VerticalAlignment="Center" Width="239" FontSize="18"/>
+
 
     </Grid>
 </Window>
