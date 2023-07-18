@@ -38,8 +38,8 @@ namespace specialization_roadmap
             if (IsValidUser(email, password))
             {
                 // Successful login
-                SpecializationWindow specializationWindow = new SpecializationWindow();
-                specializationWindow.Show();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 this.Close();
             }
             else

@@ -10,7 +10,7 @@
         <DataGrid x:Name="SpecializationDataGrid" HorizontalAlignment="Center" Height="285" Margin="0,122,0,0" VerticalAlignment="Top" Width="704" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
         <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Height="26" Margin="50,72,0,0" VerticalAlignment="Top" Width="65"/>
-        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Height="24" Margin="115,74,0,0" VerticalAlignment="Top" Width="96"/>
+        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Height="24" Margin="115,74,0,0" VerticalAlignment="Top" Width="96" SelectionChanged="statusComboBox_SelectionChanged"/>
         <Label x:Name="title" Content="Specialization Track List" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="286" FontSize="24" FontWeight="Bold"/>
 
     </Grid>

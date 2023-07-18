@@ -1,4 +1,5 @@
 ﻿using specialization_roadmap.Controllers;
+using specialization_roadmap.Entities;
 using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,15 @@ namespace specialization_roadmap
         public SpecializationListWindow()
         {
             InitializeComponent();
-            SpecializationRepository specializationRepository = new SpecializationRepository();
 
-            // statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationRepository;
-            // statusComboBox.DisplayMemberPath = "Name";
-            // statusComboBox.SelectedValuePath = "Id";
+            SpecializationModel specializationModels = new SpecializationModel();
+
+
+            // Dropdown Item ListSpecializationModel
+            // statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationModels;
+            statusComboBox.ItemsSource = specializationModels.CreateSpecializationModelList();
+            statusComboBox.DisplayMemberPath = "Title";
+            statusComboBox.SelectedValuePath = "Id";
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -36,6 +41,11 @@ namespace specialization_roadmap
             SpecializationWindow specializationWindow = new SpecializationWindow();
             specializationWindow.Show();
             this.Close();
+        }
+
+        private void statusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(statusComboBox.SelectedValue.ToString());
         }
     }
 }
