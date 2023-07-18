@@ -10,7 +10,7 @@ namespace specialization_roadmap.Controllers
 {
     public class SpecializationController
     {
-        private readonly SpecializationRepository specializationRepository= null;
+        private readonly SpecializationRepository specializationRepository = null;
 
         public SpecializationController()
         {
