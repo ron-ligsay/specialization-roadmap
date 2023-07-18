@@ -24,11 +24,11 @@ namespace specialization_roadmap
         {
             InitializeComponent();
 
-            List<SpecializationTrack> track = new List<SpecializationTrack>();
+            List<SpecializationModel> track = new List<SpecializationModel>();
 
-            SpecializationTrack special_frontend = new SpecializationTrack();
+            SpecializationModel special_frontend = new SpecializationModel();
             special_frontend.Id = 1000;
-            special_frontend.Name = "Front-End Developer";
+            special_frontend.Title = "Front-End Developer";
             special_frontend.Description = "Designs and creates the look of a website.";
             special_frontend.Progress = 0.0;
             special_frontend.Status = false;
@@ -63,7 +63,7 @@ namespace specialization_roadmap
         }
 
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public double Progress { get; set; }
         public bool Status { get; set; }
