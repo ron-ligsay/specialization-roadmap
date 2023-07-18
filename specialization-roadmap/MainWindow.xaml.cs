@@ -28,11 +28,6 @@ namespace specialization_roadmap
 
         }
     
-        public void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
@@ -40,6 +35,7 @@ namespace specialization_roadmap
             specializationWindow.Show();
             this.Close();
         }
+
     }
 
     

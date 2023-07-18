@@ -13,7 +13,7 @@
         <Label x:Name="specializationHeading" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="38,0,0,0" VerticalAlignment="Center" Width="239" FontSize="18"/>
         <Button x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53" Margin="38,139,0,0" VerticalAlignment="Top" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
         <Grid HorizontalAlignment="Center" Height="173" Margin="0,238,0,0" VerticalAlignment="Top" Width="726" Background="WhiteSmoke"/>
-    
+
 
     </Grid>
 </Window>
