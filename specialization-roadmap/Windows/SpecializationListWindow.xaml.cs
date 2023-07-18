@@ -26,8 +26,9 @@ namespace specialization_roadmap
             InitializeComponent();
             SpecializationRepository specializationRepository = new SpecializationRepository();
 
-            statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationRepository;
-            statusComboBox.DisplayMemberPath = "Name";
+            // statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationRepository;
+            // statusComboBox.DisplayMemberPath = "Name";
+            // statusComboBox.SelectedValuePath = "Id";
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
