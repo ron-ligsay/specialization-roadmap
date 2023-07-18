@@ -10,7 +10,7 @@
         <Label x:Name="title" Content="Specialization Title" HorizontalAlignment="Center" Height="41" Margin="0,26,0,0" VerticalAlignment="Top" Width="205" FontSize="24"/>
         <Label x:Name="subTitle" Content="Start your roadmap" HorizontalAlignment="Center" Height="41" Margin="0,67,0,0" VerticalAlignment="Top" Width="170" FontSize="18"/>
         <Button x:Name="Roadmap_01" Content="" HorizontalAlignment="Left" Height="53" Margin="462,139,0,0" VerticalAlignment="Top" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
-        <Label x:Name="title2" Content="{Binding Name}" HorizontalAlignment="Left" Height="42" Margin="44,124,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
+        <Label x:Name="title2" Content="{Binding Title}" HorizontalAlignment="Left" Height="42" Margin="44,124,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
         <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="44,171,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="291"/>
         <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="44,263,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
         <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="105,271,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
