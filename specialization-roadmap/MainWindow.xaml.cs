@@ -36,6 +36,12 @@ namespace specialization_roadmap
             this.Close();
         }
 
+        private void SpecializationListButton_Click(object sender, RoutedEventArgs e)
+        {
+            SpecializationListWindow specializationListWindow = new SpecializationListWindow();
+            specializationListWindow.Show();
+            this.Close();
+        }
     }
 
     
