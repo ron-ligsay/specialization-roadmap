@@ -11,9 +11,10 @@ namespace specialization_roadmap.Entities
         public new int Id { get; set; }
         public new string Title { get; set; }
         public new string Description { get; set; }
-        //public new double Progress { get; set; }
         public new bool Status { get; set; }
+        
         public new int Rating { get; set; }
+
         public List<string> ResourcesLinks { get; set; }
     }
 
@@ -22,9 +23,10 @@ namespace specialization_roadmap.Entities
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        //public double Progress { get; set; }
         public bool Status { get; set; }
+        
         public int Rating { get; set; }
+
         public List<string>? ResourcesLinks { get; set; }
     }
 }
