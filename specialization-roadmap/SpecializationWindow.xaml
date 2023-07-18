@@ -13,9 +13,10 @@
         <Label x:Name="title2" Content="{Binding Name}" HorizontalAlignment="Left" Height="42" Margin="44,124,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
         <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="44,171,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="291"/>
         <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="44,263,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
-        <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="100,263,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="105,271,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
         <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="44,294,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
-        <Label x:Name="progressContent" Content="{Binding Progress}" HorizontalAlignment="Left" Margin="100,294,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Label x:Name="progressContent" Content="{Binding Progress}" HorizontalAlignment="Left" Margin="114,302,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
 
     </Grid>
 </Window>

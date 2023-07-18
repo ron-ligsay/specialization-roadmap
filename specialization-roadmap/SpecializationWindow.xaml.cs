@@ -41,10 +41,19 @@ namespace specialization_roadmap
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow();
+            roadmapStepsWindow.Show();
+            this.Close();
+        }
 
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
-    
+
     class Specialization_Test : ISpecialization
     {
         public Specialization_Test()
