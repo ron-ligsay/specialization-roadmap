@@ -23,5 +23,12 @@ namespace specialization_roadmap
         {
             InitializeComponent();
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            SpecializationWindow specializationWindow = new SpecializationWindow();
+            specializationWindow.Show();
+            this.Close();
+        }
     }
 }
