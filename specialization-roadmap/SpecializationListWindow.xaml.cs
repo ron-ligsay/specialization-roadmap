@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace specialization_roadmap
 {
     /// <summary>
-    /// Interaction logic for RoadmapStepsWindow.xaml
+    /// Interaction logic for SpecializationListWindow.xaml
     /// </summary>
-    public partial class RoadmapStepsWindow : Window
+    public partial class SpecializationListWindow : Window
     {
-        public RoadmapStepsWindow()
+        public SpecializationListWindow()
         {
             InitializeComponent();
         }
@@ -29,11 +29,6 @@ namespace specialization_roadmap
             SpecializationWindow specializationWindow = new SpecializationWindow();
             specializationWindow.Show();
             this.Close();
-        }
-
-        private void markCompletedButton_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

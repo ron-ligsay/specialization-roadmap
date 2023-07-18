@@ -28,16 +28,18 @@ namespace specialization_roadmap
 
         }
     
-        public void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
             SpecializationWindow specializationWindow = new SpecializationWindow();
             specializationWindow.Show();
+            this.Close();
+        }
+
+        private void SpecializationListButton_Click(object sender, RoutedEventArgs e)
+        {
+            SpecializationListWindow specializationListWindow = new SpecializationListWindow();
+            specializationListWindow.Show();
             this.Close();
         }
     }
