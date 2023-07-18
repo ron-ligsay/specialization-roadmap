@@ -28,6 +28,8 @@ namespace specialization_roadmap.Entities
         public double Rating { get; set; }
         public double Progress { get; set; }
 
+
+        // Similar to SpecializationRepository
         public List<SpecializationModel> CreateSpecializationModelList()
         {
             List<SpecializationModel> specializationModels = new List<SpecializationModel>();

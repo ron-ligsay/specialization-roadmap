@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Repositories
 {
-    public class SpecializationRepository
+    public class SpecializationRepository : SpecializationModel
     {
         public List<SpecializationModel> GetAllSpecializationTrack() 
         {
@@ -19,11 +19,17 @@ namespace specialization_roadmap.Repositories
             return DataSource().FirstOrDefault(x => x.Id == id);
         }
 
+        public SpecializationModel GetSpecializationTrackById(int id, bool status)
+        {
+            return DataSource().FirstOrDefault(x => x.Id == id && x.Status == status);
+        }
+
         public List<SpecializationModel> SearchSpecializationTrack(string name, bool status)
         {
             return DataSource().Where(x=> x.Title.Contains(name) && x.Status == status).ToList();
         }
         
+        // Creating Specialization Repository
         private List<SpecializationModel> DataSource() 
         {
             return new List<SpecializationModel>()
