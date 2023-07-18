@@ -30,5 +30,10 @@ namespace specialization_roadmap
             specializationWindow.Show();
             this.Close();
         }
+
+        private void markCompletedButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
