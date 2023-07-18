@@ -30,11 +30,11 @@ namespace specialization_roadmap.Repositories
             {
                 new SpecializationModel() {
                     Id=1, Title="Font-end Developer", Description="Font-end Developer Description",
-                    Progress=0.3,Status=false,Rating=3.5
+                    Progress=1,Status=true,Rating=3.5
                 },
                 new SpecializationModel() {
                     Id=1, Title="Back-end Developer", Description="Back-end Developer Description",
-                    Progress=0.0,Status=false,Rating=4.5
+                    Progress=1,Status=true,Rating=4.5
                 },
                 new SpecializationModel() {
                     Id=1, Title="Full Stack Developer", Description="Full Stack Developer Description",
