@@ -14,6 +14,7 @@ namespace specialization_roadmap.Entities
         //public new double Progress { get; set; }
         public new bool Status { get; set; }
         public new int Rating { get; set; }
+        public List<string> ResourcesLinks { get; set; }
     }
 
     public class RoadmapStep : IRoadmap
@@ -24,5 +25,6 @@ namespace specialization_roadmap.Entities
         //public double Progress { get; set; }
         public bool Status { get; set; }
         public int Rating { get; set; }
+        public List<string>? ResourcesLinks { get; set; }
     }
 }
