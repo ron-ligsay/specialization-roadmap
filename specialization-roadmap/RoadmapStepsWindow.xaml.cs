@@ -35,5 +35,13 @@ namespace specialization_roadmap
         {
             
         }
+        
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow();
+            roadmapStepsWindow.Show();
+            this.Close();
+        }
+        
     }
 }
