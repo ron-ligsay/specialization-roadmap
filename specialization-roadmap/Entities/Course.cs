@@ -11,7 +11,6 @@ namespace specialization_roadmap.Entities
         public static int Id { get; set; }
         public static string Title { get; set; } = string.Empty;
         public static string Description { get; set; } = string.Empty;
-        //public static double Progress { get; set; }
         public static bool Status { get; set; }
 
     }
