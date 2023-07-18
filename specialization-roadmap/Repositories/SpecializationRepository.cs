@@ -28,19 +28,19 @@ namespace specialization_roadmap.Repositories
             return new List<SpecializationTrack>()
             {
                 new SpecializationTrack() {
-                    Id=1, Name="Font-end Developer", Description="Description",
+                    Id=1, Name="Font-end Developer", Description="Font-end Developer Description",
                     Progress=0.3,Status=false,Rating=3.5
                 },
                 new SpecializationTrack() {
-                    Id=1, Name="Back-end Developer", Description="Description",
+                    Id=1, Name="Back-end Developer", Description="Back-end Developer Description",
                     Progress=0.0,Status=false,Rating=4.5
                 },
                 new SpecializationTrack() {
-                    Id=1, Name="Full Stack Developer", Description="Description",
+                    Id=1, Name="Full Stack Developer", Description="Full Stack Developer Description",
                     Progress=0.0,Status=false,Rating=1.5
                 },
                 new SpecializationTrack() {
-                    Id=1, Name="Application Developer", Description="Description",
+                    Id=1, Name="Application Developer", Description="Application Developer Description",
                     Progress=0.0,Status=false,Rating=5.0
                 }
             };
