@@ -1,4 +1,6 @@
-﻿using System;
+﻿using specialization_roadmap.Controllers;
+using specialization_roadmap.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,10 @@ namespace specialization_roadmap
         public SpecializationListWindow()
         {
             InitializeComponent();
+            SpecializationRepository specializationRepository = new SpecializationRepository();
+
+            statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationRepository;
+            statusComboBox.DisplayMemberPath = "Name";
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
