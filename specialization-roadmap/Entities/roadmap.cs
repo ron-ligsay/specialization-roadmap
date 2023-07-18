@@ -13,5 +13,6 @@ namespace specialization_roadmap.Entities
         public new string Description { get; set; }
         public new double Progress { get; set; }
         public new bool Status { get; set; }
+        public new int Rating { get; set; }
     }
 }
