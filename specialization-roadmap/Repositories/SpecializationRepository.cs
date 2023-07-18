@@ -9,38 +9,39 @@ namespace specialization_roadmap.Repositories
 {
     public class SpecializationRepository
     {
-        public List<SpecializationTrack> GetSpecializationTrack() 
+        public List<SpecializationModel> GetAllSpecializationTrack() 
         {
             return DataSource();
         }
 
-        public SpecializationTrack GetSpecializationTrackId(int id)
+        public SpecializationModel GetSpecializationTrackById(int id)
         {
             return DataSource().FirstOrDefault(x => x.Id == id);
         }
 
-        public List<SpecializationTrack> SearchSpecializationTrack(string name, bool status)
+        public List<SpecializationModel> SearchSpecializationTrack(string name, bool status)
         {
-            return DataSource().Where(x=> x.Name == name && x.Status == status).ToList();
+            return DataSource().Where(x=> x.Title.Contains(name) && x.Status == status).ToList();
         }
-        private List<SpecializationTrack> DataSource() 
+        
+        private List<SpecializationModel> DataSource() 
         {
-            return new List<SpecializationTrack>()
+            return new List<SpecializationModel>()
             {
-                new SpecializationTrack() {
-                    Id=1, Name="Font-end Developer", Description="Font-end Developer Description",
+                new SpecializationModel() {
+                    Id=1, Title="Font-end Developer", Description="Font-end Developer Description",
                     Progress=0.3,Status=false,Rating=3.5
                 },
-                new SpecializationTrack() {
-                    Id=1, Name="Back-end Developer", Description="Back-end Developer Description",
+                new SpecializationModel() {
+                    Id=1, Title="Back-end Developer", Description="Back-end Developer Description",
                     Progress=0.0,Status=false,Rating=4.5
                 },
-                new SpecializationTrack() {
-                    Id=1, Name="Full Stack Developer", Description="Full Stack Developer Description",
+                new SpecializationModel() {
+                    Id=1, Title="Full Stack Developer", Description="Full Stack Developer Description",
                     Progress=0.0,Status=false,Rating=1.5
                 },
-                new SpecializationTrack() {
-                    Id=1, Name="Application Developer", Description="Application Developer Description",
+                new SpecializationModel() {
+                    Id=1, Title="Application Developer", Description="Application Developer Description",
                     Progress=0.0,Status=false,Rating=5.0
                 }
             };
