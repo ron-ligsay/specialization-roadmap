@@ -34,6 +34,12 @@ namespace specialization_roadmap
             statusComboBox.ItemsSource = specializationModels.CreateSpecializationModelList();
             statusComboBox.DisplayMemberPath = "Title";
             statusComboBox.SelectedValuePath = "Id";
+
+            SpecializationRepository specializationRepository = new SpecializationRepository();
+
+            statusComboBox2.ItemsSource = specializationRepository.GetAllSpecializationTrack();
+            statusComboBox2.DisplayMemberPath = "Title";
+            statusComboBox2.SelectedValuePath = "Description";
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -46,6 +52,11 @@ namespace specialization_roadmap
         private void statusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MessageBox.Show(statusComboBox.SelectedValue.ToString());
+        }
+
+        private void statusComboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(statusComboBox2.SelectedValue.ToString());
         }
     }
 }
