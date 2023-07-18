@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="RoadmapStepsWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+        <Label x:Name="title2" Content="{Binding Name}" HorizontalAlignment="Left" Height="42" Margin="223,131,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
+        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="223,0,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Center" Width="291"/>
+        <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
+        <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
+        <Label x:Name="progressContent" Content="{Binding Progress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="223,21,0,0" VerticalAlignment="Top" Width="291"/>
+        <Button x:Name="previousButton" Content="Previous" HorizontalAlignment="Left" Height="21" Margin="223,382,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+        <Label x:Name="title1" Content="{Binding Name}" HorizontalAlignment="Left" Height="42" Margin="223,131,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
+        <TextBox x:Name="description1"   HorizontalAlignment="Left" Height="77" Margin="223,0,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Center" Width="291"/>
+        <Label x:Name="statusLabel1" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
+        <Label x:Name="statusContent1" Content="{Binding Status}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Label x:Name="progressLabel1" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
+        <Label x:Name="progressContent1" Content="{Binding Progress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="101" Margin="223,21,0,0" VerticalAlignment="Top" Width="291"/>
+        <Button x:Name="backButton1_Copy" Content="Next" HorizontalAlignment="Left" Height="21" Margin="450,382,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+        <Button x:Name="backButton1_Copy1" Content="Mark Complete" HorizontalAlignment="Left" Height="21" Margin="335,382,0,0" VerticalAlignment="Top" Width="102" Click="backButton_Click"/>
+        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="85" Margin="223,275,0,0" VerticalAlignment="Top" Width="145" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+
     </Grid>
 </Window>
