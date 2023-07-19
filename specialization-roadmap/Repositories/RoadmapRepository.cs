@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Repositories
 {
-    public class RoadmapRepository
+    public class RoadmapRepository : RoadmapStepModel
     {
         public List<RoadmapStepModel> GetAllRoadmapSteps()
         {
@@ -24,10 +24,15 @@ namespace specialization_roadmap.Repositories
             return RoadmapDataSource().FirstOrDefault(x => x.Id == id && x.Status == status);
         }
 
-        public List<RoadmapStepModel> GetRoadmapStepBySpecialization(int specializationId)
+        public RoadmapStepModel GetRoadmapStepByIndex(int index)
         {
-            return RoadmapDataSource().FirstOrDefault(x => x.specializationStepAt.Contains(specializationId));
+            return RoadmapDataSource()[index];
         }
+
+        //public List<RoadmapStepModel> GetRoadmapStepBySpecialization(int specializationId)
+        //{
+        //    return RoadmapDataSource().FirstOrDefault(x => x.specializationStepAt.Contains(specializationId));
+        //}
 
         public List<RoadmapStepModel> SearchRoadmapStep(string name, bool status)
         {
@@ -71,26 +76,8 @@ namespace specialization_roadmap.Repositories
                         "https://roadmap.sh/guides/what-is-internet"
                     }
                 }
-
             };
-            //{
-            //    new SpecializationModel() {
-            //        Id=1, Title="Font-end Developer", Description="Font-end Developer Description",
-            //        Progress=1,Status=true,Rating=3.5
-            //    },
-            //    new SpecializationModel() {
-            //        Id=1, Title="Back-end Developer", Description="Back-end Developer Description",
-            //        Progress=1,Status=true,Rating=4.5
-            //    },
-            //    new SpecializationModel() {
-            //        Id=1, Title="Full Stack Developer", Description="Full Stack Developer Description",
-            //        Progress=0.0,Status=false,Rating=1.5
-            //    },
-            //    new SpecializationModel() {
-            //        Id=1, Title="Application Developer", Description="Application Developer Description",
-            //        Progress=0.0,Status=false,Rating=5.0
-            //    }
-            //};
+
         }
     }
 }
