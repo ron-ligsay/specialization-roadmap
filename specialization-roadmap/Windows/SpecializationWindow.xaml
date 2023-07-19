@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SpecializationWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="title" Content="{Binding sTitle}" HorizontalAlignment="Center" Height="41" Margin="0,26,0,0" VerticalAlignment="Top" Width="205" FontSize="24"/>
+        <Label x:Name="title" Content="{Binding sTitle}" HorizontalAlignment="Center" Height="41" Margin="0,26,0,0" VerticalAlignment="Top" Width="300" FontSize="24"/>
         <Label x:Name="subTitle" Content="Start your roadmap" HorizontalAlignment="Center" Height="41" Margin="0,67,0,0" VerticalAlignment="Top" Width="170" FontSize="18"/>
         <Button x:Name="RoadmapStep1" Content="" HorizontalAlignment="Left" Height="53" Margin="462,139,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep1_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
         <Label x:Name="title2" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="44,124,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
@@ -19,8 +19,12 @@
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
         <Button x:Name="RoadmapStep2" Content="" HorizontalAlignment="Left" Height="53" Margin="462,217,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep1_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
         <Button x:Name="RoadmapStep3" Content="" HorizontalAlignment="Left" Height="53" Margin="462,294,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep1_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
-        <Label x:Name="RoadmapStep1TitleLabel" Content="{Binding r1Title}" Margin="572,88,144,317"/>
-        <Label x:Name="RoadmapStep1IdLabel" Content="{Binding r1Id}" Margin="518,88,233,317"/>
+        <Label x:Name="RoadmapStep1TitleLabel" Content="{Binding r1Title}" HorizontalAlignment="Left" Height="42" Margin="521,144,0,0" VerticalAlignment="Top" Width="198" FontSize="18"/>
+        <Label x:Name="RoadmapStep1TitleLabel_Copy" Content="{Binding r1Id}" HorizontalAlignment="Left" Height="42" Margin="467,144,0,0" VerticalAlignment="Top" Width="49" FontSize="24"/>
+        <Label x:Name="RoadmapStep1TitleLabel_Copy1" Content="{Binding r2Title}" HorizontalAlignment="Left" Height="42" Margin="521,222,0,0" VerticalAlignment="Top" Width="198" FontSize="18"/>
+        <Label x:Name="RoadmapStep1TitleLabel_Copy2" Content="{Binding r2Id}" HorizontalAlignment="Left" Height="42" Margin="467,222,0,0" VerticalAlignment="Top" Width="49" FontSize="24"/>
+        <Label x:Name="RoadmapStep1TitleLabel_Copy3" Content="{Binding r3Title}" HorizontalAlignment="Left" Height="42" Margin="521,300,0,0" VerticalAlignment="Top" Width="198" FontSize="18"/>
+        <Label x:Name="RoadmapStep1TitleLabel_Copy4" Content="{Binding r3Id}" HorizontalAlignment="Left" Height="42" Margin="467,300,0,0" VerticalAlignment="Top" Width="49" FontSize="24"/>
 
     </Grid>
 </Window>

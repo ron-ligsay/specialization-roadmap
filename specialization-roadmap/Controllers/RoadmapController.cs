@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Controllers
 {
-    internal class RoadmapController
+    public class RoadmapController
     {
         private readonly RoadmapRepository roadmapRepository = null;
 
@@ -27,10 +27,10 @@ namespace specialization_roadmap.Controllers
             return roadmapRepository.GetRoadmapStepByIndex(index);
         }
 
-        //public RoadmapController GetRoadmapStepById(int id)
-        //{
-        //    return roadmapRepository.GetRoadmapStepById(id);
-        //}
+        public RoadmapStepModel GetRoadmapStepById(int id)
+        {
+            return roadmapRepository.GetRoadmapStepById(id);
+        }
 
         //public RoadmapStepModel GetAllRoadmapStepsBySpecialization(int specializationId)
         //{
