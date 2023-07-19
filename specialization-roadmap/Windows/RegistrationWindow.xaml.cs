@@ -36,7 +36,12 @@ namespace specialization_roadmap
             string password = boxPassword.Password;
             string cPassword = boxCPassword.Password;
 
-            if (password == cPassword)
+            if(string.IsNullOrEmpty(password)  )
+            {
+                MessageBox.Show("Invalid input. Please complete all fields.");
+                return;
+            }
+            else if (password == cPassword)
             {
                 string query = "INSERT INTO user (username, email, password) VALUES(@username, @email, @password)";
 
