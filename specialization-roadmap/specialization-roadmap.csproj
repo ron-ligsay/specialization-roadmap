@@ -9,13 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <None Remove="Assets\book.png" />
+    <None Remove="Assets\facebook.png" />
+    <None Remove="Assets\google.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Database\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.33" />
     <PackageReference Include="NuGet.Frameworks" Version="6.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\book.png" />
+    <Resource Include="Assets\facebook.png" />
+    <Resource Include="Assets\google.png" />
   </ItemGroup>
 
 </Project>
