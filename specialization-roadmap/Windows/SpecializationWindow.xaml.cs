@@ -37,6 +37,14 @@ namespace specialization_roadmap
             }
         }
 
+        public string sTitle { get; set; }
+        public string sDescription { get; set; }
+        public bool sStatus { get; set; }
+        public double sProgress { get; set; }
+        public string r1Title { get; set; }
+        public int r1Id { get; set; }
+
+
         public SpecializationWindow()
         {
             InitializeComponent();
@@ -58,10 +66,19 @@ namespace specialization_roadmap
             specializationModel = specializationController.GetSpecializationByIndex(0);
             //this.DataContext = specializationController.GetSpecializationByIndex(0);
 
+            sTitle = specializationModel.Title;
+            sDescription = specializationModel.Description;
+            sStatus = specializationModel.Status;
+            sProgress = specializationModel.Progress;
+
+
+
             RoadmapController roadmapController = new RoadmapController();
             RoadmapStepModel roadmapStepModel = new RoadmapStepModel();
 
-            roadmapStepModel = roadmapController.GetAllRoadmapStepsBySpecialization(specializationModel.Id);
+            roadmapStepModel = roadmapController.GetRoadmapStepsByIndex(0);
+            r1Title = roadmapStepModel.Title;
+            r1Id = roadmapStepModel.Id;
 
 
             //RoadmapStep1TitleLabel.Content = specializationController.GetSpecializationByIndex(0).Title;
