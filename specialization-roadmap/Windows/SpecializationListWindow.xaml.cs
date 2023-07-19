@@ -1,5 +1,6 @@
 ﻿using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
+using specialization_roadmap.Model;
 using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
@@ -22,24 +23,60 @@ namespace specialization_roadmap
     /// </summary>
     public partial class SpecializationListWindow : Window
     {
+        private readonly ViewModel viewmodel;
+
         public SpecializationListWindow()
         {
             InitializeComponent();
 
-            SpecializationModel specializationModels = new SpecializationModel();
-
-
             // Dropdown Item ListSpecializationModel
-            // statusComboBox.ItemsSource = (System.Collections.IEnumerable)specializationModels;
+          
+            // using entities model
+            SpecializationModel specializationModels = new SpecializationModel();
             statusComboBox.ItemsSource = specializationModels.CreateSpecializationModelList();
             statusComboBox.DisplayMemberPath = "Title";
             statusComboBox.SelectedValuePath = "Id";
 
+            // using repository
             SpecializationRepository specializationRepository = new SpecializationRepository();
-
             statusComboBox2.ItemsSource = specializationRepository.GetAllSpecializationTrack();
             statusComboBox2.DisplayMemberPath = "Title";
             statusComboBox2.SelectedValuePath = "Description";
+
+            // DataGrid
+
+            this.viewmodel = new ViewModel
+            {
+                specializationModels = new List<SpecializationModel>()
+                {
+                    new SpecializationModel
+                    {
+                        Id = 1,
+                        Title = "Title",
+                        Description = "Description",
+                        Status = false,
+                        Progress = 0.2,
+                        Rating = 3
+
+                    },
+                    new SpecializationModel
+                    {
+                        Id = 1,
+                        Title = "Title",
+                        Description = "Description",
+                        Status = false,
+                        Progress = 0.2,
+                        Rating = 3
+
+                    }
+                }
+            };
+            this.DataContext = this.viewmodel.specializationModels;
+            this.DataContext = specializationRepository.GetAllSpecializationTrack();
+
+            SpecializationDataGrid.ItemsSource = specializationRepository.GetAllSpecializationTrack();
+
+
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)

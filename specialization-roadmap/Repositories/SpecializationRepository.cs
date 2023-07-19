@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Repositories
 {
+    /// TODO: Instead of repository use database
+    /// <summary>
+    /// 
+    /// </summary>
     public class SpecializationRepository : SpecializationModel
     {
         public List<SpecializationModel> GetAllSpecializationTrack() 
