@@ -16,6 +16,8 @@
 
         <Rectangle Stroke="#FF3EB9FF" Margin="44,114,202,21" Fill="#FF3EB9FF" RadiusX="50" RadiusY="50"/>
         <Rectangle Stroke="#FFFFFF" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="50" RadiusY="50"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+
 
 
         <Label Content="Sign up to Account" HorizontalAlignment="Center" Height="63" Margin="0,7,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36"/>

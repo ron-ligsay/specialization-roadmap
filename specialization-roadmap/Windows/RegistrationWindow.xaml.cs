@@ -63,5 +63,12 @@ namespace specialization_roadmap
                 MessageBox.Show("Password do not match please try again");
             }
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }
