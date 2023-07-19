@@ -14,6 +14,8 @@ App dev project
 ### Data Binding
 - [The Basics of Data Binding in WPF](https://www.youtube.com/watch?v=hZmpa53b5R8)
   - notes
+- [How to setup a DataGrid with Collection Bindings in WPF C# .NET Core C# Visual Studio](https://www.youtube.com/watch?v=nnxCO4JX1Wc)
+  - Databinding on table, plus switching rows to other tables
 
 ### Database
 - [CRUD in C# With SQL Stored Procedure | Insert Update Delete Search in C#](https://www.youtube.com/watch?v=C7ukAjQtsxE&t=983s)
