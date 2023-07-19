@@ -22,30 +22,35 @@ namespace specialization_roadmap.Controllers
             return roadmapRepository.GetAllRoadmapSteps();
         }
 
-        public RoadmapController GetRoadmapStepById(int id)
+        public RoadmapStepModel GetRoadmapStepsByIndex(int index)
         {
-            return roadmapRepository.GetRoadmapStepById(id);
+            return roadmapRepository.GetRoadmapStepByIndex(index);
         }
+
+        //public RoadmapController GetRoadmapStepById(int id)
+        //{
+        //    return roadmapRepository.GetRoadmapStepById(id);
+        //}
 
         //public RoadmapStepModel GetAllRoadmapStepsBySpecialization(int specializationId)
         //{
         //    return roadmapRepository.GetRoadmapStepBySpecialization(specializationId);
         //}
 
-        public List<RoadmapStepModel> GetRoadmapStepsBySpecialization(int specializationId)
-        {
-            return roadmapRepository.GetRoadmapStepBySpecialization(specializationId);
-        }
+        //public List<RoadmapStepModel> GetRoadmapStepsBySpecialization(int specializationId)
+        //{
+        //    return roadmapRepository.GetRoadmapStepBySpecialization(specializationId);
+        //}
 
-        public RoadmapStepModel GetRoadmapStepsBySpecialization(int specializationId, int index)
-        {
-            //return GetRoadmapStepsBySpecialization[index];
-            //foreach  (object step in GetRoadmapStepsBySpecialization(specializationId){
-            //    int stepId = step[1].Id;
-            //}
+        //public RoadmapStepModel GetRoadmapStepsBySpecialization(int specializationId, int index)
+        //{
+        //    //return GetRoadmapStepsBySpecialization[index];
+        //    //foreach  (object step in GetRoadmapStepsBySpecialization(specializationId){
+        //    //    int stepId = step[1].Id;
+        //    //}
 
-            //return GetRoadmapStepById(stepId);
-            return GetRoadmapStepsBySpecialization.IndexOf(index);
-        }
+        //    //return GetRoadmapStepById(stepId);
+        //    return GetRoadmapStepsBySpecialization.IndexOf(index);
+        //}
     }
 }
