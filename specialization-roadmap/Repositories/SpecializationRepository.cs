@@ -28,6 +28,11 @@ namespace specialization_roadmap.Repositories
             return DataSource().FirstOrDefault(x => x.Id == id && x.Status == status);
         }
 
+        public SpecializationModel GetSpecializationTrackByIndex(int order)
+        {
+            return DataSource()[order];
+        }
+
         public List<SpecializationModel> SearchSpecializationTrack(string name, bool status)
         {
             return DataSource().Where(x=> x.Title.Contains(name) && x.Status == status).ToList();
