@@ -25,11 +25,17 @@ namespace specialization_roadmap
         public SpecializationController specializationController = new SpecializationController();
         public SpecializationModel specializationModel = new SpecializationModel();
 
-        public RoadmapController roadmapController = new RoadmapController();
-        public RoadmapStepModel roadmapStepModel1 = new RoadmapStepModel();
-        public RoadmapStepModel roadmapStepModel2 = new RoadmapStepModel();
-        public RoadmapStepModel roadmapStepModel3 = new RoadmapStepModel();
-
+        public string specializationTitle
+        {
+            get
+            {
+                return specializationModel.Title;
+            }
+            set
+            {
+                specializationModel.Title = value;
+            }
+        }
 
         public string sTitle { get; set; }
         public string sDescription { get; set; }
@@ -37,15 +43,24 @@ namespace specialization_roadmap
         public double sProgress { get; set; }
         public string r1Title { get; set; }
         public int r1Id { get; set; }
-        public string r2Title { get; set; }
-        public int r2Id { get; set; }
-        public string r3Title { get; set; }
-        public int r3Id { get; set; }
 
 
         public SpecializationWindow()
         {
             InitializeComponent();
+
+            //List<SpecializationModel> track = new List<SpecializationModel>();
+
+            //SpecializationModel special_frontend = new SpecializationModel();
+            //special_frontend.Id = 1000;
+            //special_frontend.Title = "Front-End Developer";
+            //special_frontend.Description = "Designs and creates the look of a website.";
+            //special_frontend.Progress = 0.0;
+            //special_frontend.Status = false;
+
+            //track.Add(special_frontend);
+
+            // this.DataContext = special_frontend;
 
 
             specializationModel = specializationController.GetSpecializationByIndex(0);
@@ -55,31 +70,26 @@ namespace specialization_roadmap
             sDescription = specializationModel.Description;
             sStatus = specializationModel.Status;
             sProgress = specializationModel.Progress;
-            
 
-            roadmapStepModel1 = roadmapController.GetRoadmapStepsByIndex(0);
-            roadmapStepModel2 = roadmapController.GetRoadmapStepsByIndex(1);
-            roadmapStepModel3 = roadmapController.GetRoadmapStepsByIndex(2);
-            r1Title = roadmapStepModel1.Title;
-            r2Title = roadmapStepModel2.Title;
-            r3Title = roadmapStepModel3.Title;
-            r1Id = roadmapStepModel1.Id;
-            r2Id = roadmapStepModel2.Id;
-            r3Id = roadmapStepModel3.Id;
 
+
+            RoadmapController roadmapController = new RoadmapController();
+            RoadmapStepModel roadmapStepModel = new RoadmapStepModel();
+
+            roadmapStepModel = roadmapController.GetRoadmapStepsByIndex(0);
+            r1Title = roadmapStepModel.Title;
+            r1Id = roadmapStepModel.Id;
 
 
             //RoadmapStep1TitleLabel.Content = specializationController.GetSpecializationByIndex(0).Title;
-            //RoadmapStep1TitleLabel.Content = roadmapStepModel.Title;
-            //RoadmapStep1IdLabel.ContentStringFormat = roadmapStepModel.Id.ToString();
+            RoadmapStep1TitleLabel.Content = roadmapStepModel.Title;
+            RoadmapStep1IdLabel.ContentStringFormat = roadmapStepModel.Id.ToString();
 
             DataContext = this;
         }
-
-
         /// TODO: Pass objects of the Roadmap Step selected or assigned in the Button
         /// <summary>
-        /// https://www.youtube.com/watch?v=sbwK7NjkwME
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -98,5 +108,18 @@ namespace specialization_roadmap
         }
     }
 
-   
+    class Specialization_Test : ISpecialization
+    {
+        public Specialization_Test()
+        {
+            
+           
+        }
+
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public double Progress { get; set; }
+        public bool Status { get; set; }
+    }
 }
