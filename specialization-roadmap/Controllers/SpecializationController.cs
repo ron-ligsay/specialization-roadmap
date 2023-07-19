@@ -26,10 +26,16 @@ namespace specialization_roadmap.Controllers
         {
             return specializationRepository.GetSpecializationTrackById(id);
         }
+        
+        public SpecializationModel GetSpecializationByIndex(int index)
+        {
+            return specializationRepository.GetSpecializationTrackByIndex(index);
+        }
 
         public List<SpecializationModel> SearchSpecializationTrack(string name, bool status)
         {
             return specializationRepository.SearchSpecializationTrack(name, status);
         }
+        
     }
 }
