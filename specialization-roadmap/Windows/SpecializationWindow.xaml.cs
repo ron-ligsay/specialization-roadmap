@@ -1,7 +1,9 @@
-﻿using specialization_roadmap.Entities;
+﻿using specialization_roadmap.Controllers;
+using specialization_roadmap.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,26 +22,61 @@ namespace specialization_roadmap
     /// </summary>
     public partial class SpecializationWindow : Window
     {
+        public SpecializationController specializationController = new SpecializationController();
+        public SpecializationModel specializationModel = new SpecializationModel();
+
+        public string specializationTitle
+        {
+            get
+            {
+                return specializationModel.Title;
+            }
+            set
+            {
+                specializationModel.Title = value;
+            }
+        }
+
         public SpecializationWindow()
         {
             InitializeComponent();
 
-            List<SpecializationModel> track = new List<SpecializationModel>();
+            //List<SpecializationModel> track = new List<SpecializationModel>();
 
-            SpecializationModel special_frontend = new SpecializationModel();
-            special_frontend.Id = 1000;
-            special_frontend.Title = "Front-End Developer";
-            special_frontend.Description = "Designs and creates the look of a website.";
-            special_frontend.Progress = 0.0;
-            special_frontend.Status = false;
-            
-            track.Add(special_frontend);
+            //SpecializationModel special_frontend = new SpecializationModel();
+            //special_frontend.Id = 1000;
+            //special_frontend.Title = "Front-End Developer";
+            //special_frontend.Description = "Designs and creates the look of a website.";
+            //special_frontend.Progress = 0.0;
+            //special_frontend.Status = false;
 
-            this.DataContext = special_frontend;
+            //track.Add(special_frontend);
 
+            // this.DataContext = special_frontend;
+
+
+            specializationModel = specializationController.GetSpecializationByIndex(0);
+            //this.DataContext = specializationController.GetSpecializationByIndex(0);
+
+            RoadmapController roadmapController = new RoadmapController();
+            RoadmapStepModel roadmapStepModel = new RoadmapStepModel();
+
+            roadmapStepModel = roadmapController.GetAllRoadmapStepsBySpecialization(specializationModel.Id);
+
+
+            //RoadmapStep1TitleLabel.Content = specializationController.GetSpecializationByIndex(0).Title;
+            RoadmapStep1TitleLabel.Content = roadmapStepModel.Title;
+            RoadmapStep1IdLabel.ContentStringFormat = roadmapStepModel.Id.ToString();
+
+            DataContext = this;
         }
-
-        private void Specialization_01_Click(object sender, RoutedEventArgs e)
+        /// TODO: Pass objects of the Roadmap Step selected or assigned in the Button
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RoadmapStep1_Click(object sender, RoutedEventArgs e)
         {
             RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow();
             roadmapStepsWindow.Show();
