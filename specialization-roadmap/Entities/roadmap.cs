@@ -25,25 +25,53 @@ namespace specialization_roadmap.Entities
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public bool Status { get; set; }
-        
+
         public int Rating { get; set; }
-        
+
         /// <summary>
         /// Reference ID List to ID of the Specialization
         /// </summary>
-        public List<int>? specializationStepAt { get; set; }
+        public List<int> specializationStepAt { get; set; }
         
         /// <summary>
         /// Declares the step order in the roadmap
         /// </summary>
-        public List<int>? specializationStepOrderAt { get; set; }
+        public List<int> specializationStepOrderAt { get; set; }
         public List<string> ResourcesLinks { get; set; }
+
+        
+
 
         public bool containsSpecializationId(int specializationId)
         {
             return specializationStepAt.Contains(specializationId);
         }
+
+        public bool containsNextStepId(int stepIndex, int nextStep)
+        {
+            return specializationStepOrderAt[stepIndex] == nextStep;
+        }
         
+        public int getStepNumberofRoadmap(int step)
+        {
+            return specializationStepOrderAt[step];
+        }
+
+        int index;
+        public int getIndexofSpecializationId(List<int> specializationIdList, int specilizationId)
+        {
+            //return specializationStepAt.IndexOf(specializationIdList, specilizationId);
+            
+            for (int i=0; i<specializationIdList.Count; i++)
+            {
+                int temp = specializationIdList[i];
+                index = specializationIdList.IndexOf(temp);
+            }
+            return index;
+        }
+
+
+
         public List<RoadmapStepModel> CreateSpecializationModelList()
         {
             List<RoadmapStepModel> roadmapStepModels = new List<RoadmapStepModel>();
