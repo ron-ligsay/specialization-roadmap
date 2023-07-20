@@ -37,12 +37,35 @@ namespace specialization_roadmap.Repositories
             return RoadmapDataSource().Where(x => x.Title.Contains(name) && x.Status == status).ToList();
         }
 
-        
-
-        public RoadmapStepModel GetNextRoadmapStep(RoadmapStepModel currentStepModel)
+        public List<RoadmapStepModel> GetRoadmapStepBySpecializationId(int specializationId)
         {
-
+            return RoadmapDataSource().Where(x => x.containsSpecializationId(specializationId)).ToList();
         }
+
+        public RoadmapStepModel GetNextRoadmapStep (int specializationId, int step)
+        {
+            return RoadmapDataSource().Where(x => x.containsSpecializationId(specializationId)).ToList()[step];
+        }
+
+
+
+        public RoadmapStepModel GetNextRoadmapStep(RoadmapStepModel currentStepModel, int specializationId)
+        {
+            // get index of roadmap model specialization id from specialization list by comapring where the id parameter is indexed at.
+            int specializationIndex = currentStepModel.getIndexofSpecializationId(currentStepModel.specializationStepAt, specializationId);
+            // get the step number where the specialization is index at
+            int step = currentStepModel.specializationStepOrderAt[specializationIndex];
+            // add 1 to make as next step
+            step += 1;
+            // find the next step where in the  list of specialization at and speciazation step of the next step is the same
+            currentStepModel = (RoadmapStepModel)RoadmapDataSource().Where(x => 
+                x.containsSpecializationId(specializationId) && 
+                x.specializationStepOrderAt[x.getIndexofSpecializationId(x.specializationStepAt,specializationId)] == step
+                );
+
+            return currentStepModel;
+        }
+
 
 
 
