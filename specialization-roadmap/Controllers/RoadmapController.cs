@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Controllers
 {
-    internal class RoadmapController
+    public class RoadmapController
     {
         private readonly RoadmapRepository roadmapRepository = null;
 
