@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="TestGridWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="label" Content="{Binding TestContent}" HorizontalAlignment="Left" Height="29" Margin="99,111,0,0" VerticalAlignment="Top" Width="128"/>
+        <Label x:Name="label1" Content="{Binding currentTitle}" HorizontalAlignment="Left" Height="40" Margin="371,126,0,0" VerticalAlignment="Top" Width="263"/>
+        <Label x:Name="label1_Copy" Content="{Binding nextTitle}" HorizontalAlignment="Left" Height="40" Margin="371,0,0,0" VerticalAlignment="Center" Width="263"/>
     </Grid>
 </Window>
