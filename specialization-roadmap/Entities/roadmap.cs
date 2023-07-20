@@ -27,16 +27,23 @@ namespace specialization_roadmap.Entities
         public bool Status { get; set; }
         
         public int Rating { get; set; }
+        
         /// <summary>
         /// Reference ID List to ID of the Specialization
         /// </summary>
         public List<int>? specializationStepAt { get; set; }
+        
         /// <summary>
         /// Declares the step order in the roadmap
         /// </summary>
-        public List<int> specializationStepOrderAt { get; set; }
+        public List<int>? specializationStepOrderAt { get; set; }
         public List<string> ResourcesLinks { get; set; }
 
+        public bool containsSpecializationId(int specializationId)
+        {
+            return specializationStepAt.Contains(specializationId);
+        }
+        
         public List<RoadmapStepModel> CreateSpecializationModelList()
         {
             List<RoadmapStepModel> roadmapStepModels = new List<RoadmapStepModel>();
