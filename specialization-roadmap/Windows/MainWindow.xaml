@@ -14,6 +14,7 @@
         <Button x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53" Margin="38,139,0,0" VerticalAlignment="Top" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
         <Grid HorizontalAlignment="Center" Height="128" Margin="0,238,0,0" VerticalAlignment="Top" Width="724" Background="WhiteSmoke"/>
         <Button x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" Margin="644,371,0,0" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
+        <Label x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,144,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>
 
 
     </Grid>
