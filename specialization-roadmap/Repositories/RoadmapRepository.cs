@@ -37,6 +37,15 @@ namespace specialization_roadmap.Repositories
             return RoadmapDataSource().Where(x => x.Title.Contains(name) && x.Status == status).ToList();
         }
 
+        
+
+        public RoadmapStepModel GetNextRoadmapStep(RoadmapStepModel currentStepModel)
+        {
+
+        }
+
+
+
         // Creating Specialization Repository
         private List<RoadmapStepModel> RoadmapDataSource()
         {

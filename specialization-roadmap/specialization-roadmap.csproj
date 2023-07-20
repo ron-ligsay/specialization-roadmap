@@ -12,6 +12,7 @@
     <None Remove="Assets\book.png" />
     <None Remove="Assets\facebook.png" />
     <None Remove="Assets\google.png" />
+    <None Remove="Windows\book.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <Resource Include="Assets\book.png" />
     <Resource Include="Assets\facebook.png" />
     <Resource Include="Assets\google.png" />
+    <Resource Include="Windows\book.png" />
   </ItemGroup>
 
 </Project>

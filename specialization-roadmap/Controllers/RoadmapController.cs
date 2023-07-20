@@ -52,5 +52,10 @@ namespace specialization_roadmap.Controllers
         //    //return GetRoadmapStepById(stepId);
         //    return GetRoadmapStepsBySpecialization.IndexOf(index);
         //}
+
+        public RoadmapStepModel GetNextRoadmapStep()
+        {
+            return ;
+        }
     }
 }
