@@ -81,8 +81,8 @@ namespace specialization_roadmap
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            SpecializationWindow specializationWindow = new SpecializationWindow();
-            specializationWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
 
