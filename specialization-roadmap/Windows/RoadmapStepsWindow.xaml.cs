@@ -31,6 +31,11 @@ namespace specialization_roadmap
             this.Close();
         }
 
+        /// <summary>
+        /// Change status of the roadmap to completed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void markCompletedButton_Click(object sender, RoutedEventArgs e)
         {
             
