@@ -14,7 +14,7 @@
         <Label x:Name="statusContent" Content="{Binding rStatus}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
         <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
         <Label x:Name="progressContent" Content="{Binding rProgress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="223,21,0,0" VerticalAlignment="Top" Width="291"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="223,21,0,0" VerticalAlignment="Top" Width="291" Source="/Windows/book.png"/>
         <Button x:Name="previousButton" Content="Previous" HorizontalAlignment="Left" Height="21" Margin="223,382,0,0" VerticalAlignment="Top" Width="64" Click="previousButton_Click"/>
         <Button x:Name="nextButton" Content="Next" HorizontalAlignment="Left" Height="21" Margin="450,382,0,0" VerticalAlignment="Top" Width="64" Click="nextButton_Click"/>
         <Button x:Name="markCompletedButton" Content="Mark Complete" HorizontalAlignment="Left" Height="21" Margin="335,382,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click"/>
