@@ -1,4 +1,5 @@
-﻿using specialization_roadmap.Entities;
+﻿using specialization_roadmap.Controllers;
+using specialization_roadmap.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,17 +22,26 @@ namespace specialization_roadmap
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SpecializationController specializationController = new SpecializationController();
+        public SpecializationModel specializationModel = new SpecializationModel();
+
+        public string sTitle { get; set; }
+
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();   
+            
+            specializationModel = specializationController.GetSpecializationByIndex(0);
 
+            sTitle = specializationModel.Title;
 
+            DataContext = this;
         }
     
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
-            SpecializationWindow specializationWindow = new SpecializationWindow();
+            SpecializationWindow specializationWindow = new SpecializationWindow(specializationModel);
             specializationWindow.Show();
             this.Close();
         }

@@ -1,6 +1,7 @@
 ﻿using specialization_roadmap.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,19 @@ namespace specialization_roadmap.Repositories
 
         //public List<RoadmapStepModel> GetRoadmapStepBySpecialization(int specializationId)
         //{
-        //    return RoadmapDataSource().FirstOrDefault(x => x.specializationStepAt.Contains(specializationId));
+        //    //return RoadmapDataSource().FirstOrDefault(x => x.specializationStepAt.Contains(specializationId));
+            
+        //    for (RoadmapStepModel roadmapStepModel: this.GetAllRoadmapSteps)
+        //    {
+        //        if roadmapStepModel.specializationStepAt.Contains(specializationId){
+        //            return roadmapStepModel;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    } 
+        //    //return RoadmapDataSource().containsSpecializationId(specializationId);
         //}
 
         public List<RoadmapStepModel> SearchRoadmapStep(string name, bool status)

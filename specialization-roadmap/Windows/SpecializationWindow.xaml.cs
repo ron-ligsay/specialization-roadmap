@@ -43,18 +43,19 @@ namespace specialization_roadmap
         public int r3Id { get; set; }
 
 
-        public SpecializationWindow()
+        public SpecializationWindow(SpecializationModel specializationModel)
         {
             InitializeComponent();
 
 
-            specializationModel = specializationController.GetSpecializationByIndex(0);
+            this.specializationModel = specializationController.GetSpecializationByIndex(0);
             //this.DataContext = specializationController.GetSpecializationByIndex(0);
-
-            sTitle = specializationModel.Title;
-            sDescription = specializationModel.Description;
-            sStatus = specializationModel.Status;
-            sProgress = specializationModel.Progress;
+            
+            
+            sTitle = this.specializationModel.Title;
+            sDescription = this.specializationModel.Description;
+            sStatus = this.specializationModel.Status;
+            sProgress = this.specializationModel.Progress;
             
 
             roadmapStepModel1 = roadmapController.GetRoadmapStepsByIndex(0);
@@ -85,7 +86,21 @@ namespace specialization_roadmap
         /// <param name="e"></param>
         private void RoadmapStep1_Click(object sender, RoutedEventArgs e)
         {
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow();
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel,this.roadmapStepModel1);
+            roadmapStepsWindow.Show();
+            this.Close();
+        }
+
+        private void RoadmapStep2_Click(object sender, RoutedEventArgs e)
+        {
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel2);
+            roadmapStepsWindow.Show();
+            this.Close();
+        }
+
+        private void RoadmapStep3_Click(object sender, RoutedEventArgs e)
+        {
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel3);
             roadmapStepsWindow.Show();
             this.Close();
         }

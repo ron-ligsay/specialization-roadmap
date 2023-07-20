@@ -17,8 +17,8 @@
         <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="44,294,0,0" VerticalAlignment="Top" Width="65" FontWeight="Bold"/>
         <Label x:Name="progressContent" Content="{Binding sProgress}" HorizontalAlignment="Left" Margin="114,294,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040" Height="26"/>
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
-        <Button x:Name="RoadmapStep2" Content="" HorizontalAlignment="Left" Height="53" Margin="462,217,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep1_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
-        <Button x:Name="RoadmapStep3" Content="" HorizontalAlignment="Left" Height="53" Margin="462,294,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep1_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
+        <Button x:Name="RoadmapStep2" Content="" HorizontalAlignment="Left" Height="53" Margin="462,217,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep2_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
+        <Button x:Name="RoadmapStep3" Content="" HorizontalAlignment="Left" Height="53" Margin="462,294,0,0" VerticalAlignment="Top" Width="269" Click="RoadmapStep3_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
         <Label x:Name="RoadmapStep1TitleLabel" Content="{Binding r1Title}" HorizontalAlignment="Left" Height="34" Margin="516,148,0,0" VerticalAlignment="Top" Width="175" FontSize="18"/>
         <Label x:Name="RoadmapStep1TitleLabel_Copy" Content="{Binding r1Id}" HorizontalAlignment="Left" Height="42" Margin="467,144,0,0" VerticalAlignment="Top" Width="49" FontSize="24"/>
         <Label x:Name="RoadmapStep1TitleLabel_Copy1" Content="{Binding r2Title}" HorizontalAlignment="Left" Height="42" Margin="521,222,0,0" VerticalAlignment="Top" Width="198" FontSize="18"/>
