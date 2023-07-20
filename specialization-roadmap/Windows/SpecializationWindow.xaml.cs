@@ -35,7 +35,11 @@ namespace specialization_roadmap
         public bool sStatus { get; set; }
         public double sProgress { get; set; }
         public string r1Title { get; set; }
+        public string r2Title { get; set; }
+        public string r3Title { get; set; }
         public int r1Id { get; set; }
+        public int r2Id { get; set; }
+        public int r3Id { get; set; }
 
 
         public SpecializationWindow(SpecializationModel specializationModel)
