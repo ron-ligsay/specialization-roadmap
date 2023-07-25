@@ -42,14 +42,14 @@ namespace specialization_roadmap
         public int r3Id { get; set; }
 
 
-        public SpecializationWindow(SpecializationModel specializationModel)
+        public SpecializationWindow(SpecializationModel _specializationModel)
         {
             InitializeComponent();
 
 
-            this.specializationModel = specializationController.GetSpecializationByIndex(0);
+            //this.specializationModel = specializationController.GetSpecializationByIndex(0);
             //this.DataContext = specializationController.GetSpecializationByIndex(0);
-            
+            this.specializationModel = _specializationModel;
             
             sTitle = this.specializationModel.Title;
             sDescription = this.specializationModel.Description;
