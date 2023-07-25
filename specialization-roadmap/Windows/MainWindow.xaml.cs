@@ -1,7 +1,9 @@
 ﻿using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
+using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +25,11 @@ namespace specialization_roadmap
     public partial class MainWindow : Window
     {
         public SpecializationController specializationController = new SpecializationController();
+        public SpecializationRepository specializationRepository = new SpecializationRepository();
         public SpecializationModel specializationModel = new SpecializationModel();
 
         public string sTitle { get; set; }
+        public ObservableCollection<SpecializationModel> SpecializationViewModels { get; set; }
 
         public MainWindow()
         {
@@ -35,7 +39,10 @@ namespace specialization_roadmap
 
             sTitle = specializationModel.Title;
 
+            SpecializationViewModels = specializationRepository.GetAllSpecializationTrackObservation();
+
             DataContext = this;
+
         }
     
 

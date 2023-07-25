@@ -7,21 +7,26 @@
         mc:Ignorable="d"
         Title="SpecializationListWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding specializationModels}" x:Name="SpecializationDataGrid" HorizontalAlignment="Center" Height="289" Margin="0,118,0,0" VerticalAlignment="Top" Width="740" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding specializationModels}" x:Name="SpecializationDataGrid" HorizontalAlignment="Left" Height="253" Margin="18,113,0,0" VerticalAlignment="Top" Width="747" AutoGenerateColumns="False"
+                  SelectedItem="{Binding selectedModel}" SelectionChanged="SpecializationDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="30" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Title" Width="150" Binding="{Binding Title}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Descrioption" Width="*" Binding="{Binding Description}"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Status" Width="80" Binding="{Binding Description}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Status" Width="80" Binding="{Binding Status}"></DataGridCheckBoxColumn>
                 <DataGridTextColumn Header="Progress" Width="80" Binding="{Binding Progress}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rating" Width="100" Binding="{Binding Rating}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+
+
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
         <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Height="26" Margin="50,72,0,0" VerticalAlignment="Top" Width="65"/>
         <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Height="24" Margin="115,74,0,0" VerticalAlignment="Top" Width="96" SelectionChanged="statusComboBox_SelectionChanged"/>
         <Label x:Name="title" Content="Specialization Track List" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="286" FontSize="24" FontWeight="Bold"/>
         <ComboBox x:Name="statusComboBox2" HorizontalAlignment="Left" Height="24" Margin="232,74,0,0" VerticalAlignment="Top" Width="96" SelectionChanged="statusComboBox2_SelectionChanged"/>
+        <Button x:Name="Openbutton" Content="Open" HorizontalAlignment="Left" Height="28" Margin="636,380,0,0" VerticalAlignment="Top" Width="129" Click="Openbutton_Click"/>
 
     </Grid>
 </Window>
