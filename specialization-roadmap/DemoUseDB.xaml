@@ -1,0 +1,22 @@
+﻿<Window x:Class="specialization_roadmap.DemoUseDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:specialization_roadmap"
+        mc:Ignorable="d"
+        Title="DemoUseDB" Height="720" Width="1280">
+    <Grid Margin="0,0,-11,0">
+        <DataGrid x:Name="dataGridViewResources" HorizontalAlignment="Left" Height="280" Margin="646,380,0,0" VerticalAlignment="Top" Width="596" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Content="Resources" HorizontalAlignment="Left" Height="42" Margin="861,333,0,0" VerticalAlignment="Top" Width="166" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+        <DataGrid x:Name="dataGridViewSpecializations" HorizontalAlignment="Left" Height="278" Margin="64,357,0,0" VerticalAlignment="Top" Width="486" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Content="Specializations" HorizontalAlignment="Left" Height="42" Margin="224,312,0,0" VerticalAlignment="Top" Width="166" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.539,1.441"/>
+        <DataGrid x:Name="dataGridViewCourses" HorizontalAlignment="Left" Height="190" Margin="106,76,0,0" VerticalAlignment="Top" Width="444" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Content="All Courses" HorizontalAlignment="Left" Height="42" Margin="226,28,0,0" VerticalAlignment="Top" Width="164" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+        <DataGrid x:Name="dataGridViewSpecCourse" HorizontalAlignment="Left" Height="239" Margin="646,75,0,0" VerticalAlignment="Top" Width="596" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Content="Courses" HorizontalAlignment="Left" Height="42" Margin="758,28,0,0" VerticalAlignment="Top" Width="166" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+        <RadioButton x:Name="radioFront" Content="Front-end" HorizontalAlignment="Left" Height="19" Margin="956,45,0,0" VerticalAlignment="Top" Width="99" Checked="RadioButton_Checked" FontSize="16"/>
+        <RadioButton x:Name="radioBack" Content="back-end" HorizontalAlignment="Left" Height="18" Margin="1060,45,0,0" VerticalAlignment="Top" Width="93" Checked="RadioButton_Checked" FontSize="16"/>
+
+    </Grid>
+</Window>
