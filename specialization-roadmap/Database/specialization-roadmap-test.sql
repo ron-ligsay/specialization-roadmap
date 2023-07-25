@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 11:23 AM
+-- Generation Time: Jul 25, 2023 at 11:46 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -113,16 +113,19 @@ INSERT INTO `roadmap` (`RoadmapID`, `SpecializationID`, `CourseID`, `Step`) VALU
 CREATE TABLE `specialization` (
   `SpecializationID` int(11) NOT NULL,
   `SpecializationName` varchar(100) NOT NULL,
-  `SpecializationDescription` varchar(500) NOT NULL
+  `SpecializationDescription` varchar(500) NOT NULL,
+  `Status` int(11) NOT NULL DEFAULT 0,
+  `Progress` int(11) NOT NULL DEFAULT 0,
+  `Rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `specialization`
 --
 
-INSERT INTO `specialization` (`SpecializationID`, `SpecializationName`, `SpecializationDescription`) VALUES
-(1, 'Frontend Developer', 'Front-end development is the development of visual and interactive elements of a website that users interact with directly. It\'s a combination of HTML, CSS and JavaScript, where HTML provides the structure, CSS the styling and layout, and JavaScript the dynamic behaviour and interactivity.\r\n\r\nAs a front-end developer, you\'ll be responsible for creating the user interface of a website, to ensure it looks good and is easy to use, with great focus on design principles and user experience. You\'ll be'),
-(2, 'Backend Developer', 'Backend web development is the part of web development that deals with the server-side of a web application. This includes creating and managing the server-side logic, connecting the application to a database, creating server-side APIs, handling user authentication and authorization, and processing and responding to user requests. It often involves the use of programming languages such as Python, Java, Ruby, PHP, JavaScript (Node.js), and .NET languages.\r\n\r\n');
+INSERT INTO `specialization` (`SpecializationID`, `SpecializationName`, `SpecializationDescription`, `Status`, `Progress`, `Rating`) VALUES
+(1, 'Frontend Developer', 'Front-end development is the development of visual and interactive elements of a website that users interact with directly. It\'s a combination of HTML, CSS and JavaScript, where HTML provides the structure, CSS the styling and layout, and JavaScript the dynamic behaviour and interactivity.\r\n\r\nAs a front-end developer, you\'ll be responsible for creating the user interface of a website, to ensure it looks good and is easy to use, with great focus on design principles and user experience. You\'ll be', 0, 0, 0),
+(2, 'Backend Developer', 'Backend web development is the part of web development that deals with the server-side of a web application. This includes creating and managing the server-side logic, connecting the application to a database, creating server-side APIs, handling user authentication and authorization, and processing and responding to user requests. It often involves the use of programming languages such as Python, Java, Ruby, PHP, JavaScript (Node.js), and .NET languages.\r\n\r\n', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -215,7 +218,7 @@ ALTER TABLE `specialization`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
