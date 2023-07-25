@@ -39,6 +39,11 @@ namespace specialization_roadmap
 
             sTitle = specializationModel.Title;
 
+
+            DatabaseManager databaseManager = new DatabaseManager();
+
+
+
             SpecializationViewModels = specializationRepository.GetAllSpecializationTrackObservation();
 
             DataContext = this;

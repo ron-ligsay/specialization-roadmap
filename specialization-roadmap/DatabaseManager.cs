@@ -27,6 +27,23 @@ namespace specialization_roadmap
                 connection.Open();
             }
         }
+        public bool OpenConnection(bool connected)
+        {
+            if (connected)
+            {
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch (MySqlException e)
+                {
+
+                    return false;
+                }
+            }
+            return false;
+        }
 
         public void CloseConnection()
         {
@@ -90,6 +107,11 @@ namespace specialization_roadmap
                 CloseConnection();
             }
             return dataTable;
+        }
+
+        public MySqlConnection GetConnection()
+        {
+            return this.connection;
         }
 
     }

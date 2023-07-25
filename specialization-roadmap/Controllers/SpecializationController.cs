@@ -1,4 +1,5 @@
-﻿using specialization_roadmap.Entities;
+﻿using specialization_roadmap.DataAccess;
+using specialization_roadmap.Entities;
 using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace specialization_roadmap.Controllers
 {
     public class SpecializationController
     {
-        private readonly SpecializationRepository specializationRepository = null;
 
-        public List<SpecializationModel> specializationModels { get; set; }     
+        private readonly DatabaseManager connection;
+        private readonly SpecializationRepository specializationRepository;
+
+        //public List<SpecializationModel> specializationModels { get; set; }     
 
         public SpecializationModel SelectedModel { get; set; }
 
@@ -37,8 +40,13 @@ namespace specialization_roadmap.Controllers
 
         public SpecializationController()
         {
+            connection = new DatabaseManager();
+            specializationRepository = new SpecializationRepository(connection);
+            LoadDataAsync();
             specializationRepository = new SpecializationRepository();
         }
+
+        private ObservableCollection<SpecializationModel> specializationModels { get; set; }
 
         public ObservableCollection<SpecializationModel> GetAllSpecializationO()
         {
@@ -49,6 +57,12 @@ namespace specialization_roadmap.Controllers
         {
             return specializationRepository.GetAllSpecializationTrack();
         }
+
+        private async void LoadDataAsync()
+        {
+            specializationModels = await specializationRepository.GetSpecializationModelsAsync();
+        }
+
 
         public SpecializationModel GetSpecializationTrackById(int id)
         {
