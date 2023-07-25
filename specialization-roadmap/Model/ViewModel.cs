@@ -9,8 +9,12 @@ namespace specialization_roadmap.Model
 {
     internal class ViewModel
     {
-        public IEnumerable<SpecializationModel>? specializationModels;
+        //public IEnumerable<SpecializationModel>? specializationModels;
 
-       // public IEnumerable<SpecializationModel> SpecializationModels { get => specializationModels; set => specializationModels = value; }
+        // public IEnumerable<SpecializationModel> SpecializationModels { get => specializationModels; set => specializationModels = value; }
+
+        public IList<SpecializationModel> SpecializationModelsIList { get; set; }
+
+        public SpecializationModel SelectedModel { get; set; }
     }
 }
