@@ -4,6 +4,8 @@ using specialization_roadmap.Model;
 using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,59 +25,49 @@ namespace specialization_roadmap
     /// </summary>
     public partial class SpecializationListWindow : Window
     {
-        private readonly ViewModel viewmodel;
+        //private readonly ViewModel specializationRepository;
+        private readonly SpecializationModel specializationModel;
+        //private readonly SpecializationModel specializationModels;
+        private readonly SpecializationRepository specializationRepository;
+        private readonly SpecializationController specializationController;
+        private readonly ViewModel viewModel;
 
         public SpecializationListWindow()
         {
             InitializeComponent();
 
+            //this.viewModel = new ViewModel();
+
+            //this.viewModel.SpecializationModelsIList = this.specializationRepository.specializationModelsIList();
+            
+
+           
+
+
+            //this.specializationRepository.specializationModelsIList = this.specializationController.GetAllSpecializationO();
+
+            //this.DataContext = this.specializationController.GetAllSpecializationTrackObservation();
+            //this.DataContext = this.specializationRepository;
+
+            this.specializationController = new SpecializationController();
+            //SpecializationDataGrid.ItemsSource = this.specializationController.GetAllSpecialization();
+
+            this.specializationRepository = new SpecializationRepository();
+            SpecializationDataGrid.ItemsSource = this.specializationRepository.GetAllSpecializationTrack();
+
+
             // Dropdown Item ListSpecializationModel
-          
+
             // using entities model
-            SpecializationModel specializationModels = new SpecializationModel();
-            statusComboBox.ItemsSource = specializationModels.CreateSpecializationModelList();
+            this.specializationController = new SpecializationController();
+            statusComboBox.ItemsSource = this.specializationController.GetAllSpecialization();
             statusComboBox.DisplayMemberPath = "Title";
             statusComboBox.SelectedValuePath = "Id";
 
             // using repository
-            SpecializationRepository specializationRepository = new SpecializationRepository();
-            statusComboBox2.ItemsSource = specializationRepository.GetAllSpecializationTrack();
+            statusComboBox2.ItemsSource = this.specializationController.GetAllSpecialization();
             statusComboBox2.DisplayMemberPath = "Title";
             statusComboBox2.SelectedValuePath = "Description";
-
-            // DataGrid
-
-            this.viewmodel = new ViewModel
-            {
-                specializationModels = new List<SpecializationModel>()
-                {
-                    new SpecializationModel
-                    {
-                        Id = 1,
-                        Title = "Title",
-                        Description = "Description",
-                        Status = false,
-                        Progress = 0.2,
-                        Rating = 3
-
-                    },
-                    new SpecializationModel
-                    {
-                        Id = 1,
-                        Title = "Title",
-                        Description = "Description",
-                        Status = false,
-                        Progress = 0.2,
-                        Rating = 3
-
-                    }
-                }
-            };
-            this.DataContext = this.viewmodel.specializationModels;
-            this.DataContext = specializationRepository.GetAllSpecializationTrack();
-
-            SpecializationDataGrid.ItemsSource = specializationRepository.GetAllSpecializationTrack();
-
 
         }
 
@@ -94,6 +86,41 @@ namespace specialization_roadmap
         private void statusComboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MessageBox.Show(statusComboBox2.SelectedValue.ToString());
+        }
+
+
+        private void Openbutton_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            if (this.specializationRepository.SelectedModel == null)
+            {
+                MessageBox.Show("null model");
+                //return;
+            }
+
+            if (this.specializationRepository.specializationModels.Contains(this.specializationRepository.SelectedModel))
+            {
+                MessageBox.Show("model is not in the repository");
+                //return;
+            }
+            */
+
+            SpecializationModel row = SpecializationDataGrid.SelectedItem as SpecializationModel;
+
+            SpecializationWindow specializationWindow = new SpecializationWindow(row);
+            specializationWindow.Show();
+            this.Close();
+        }
+
+        private void SpecializationDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid gd = (DataGrid)sender;
+            DataRowView row_selected = gd.SelectedItem as DataRowView;
+            if (row_selected != null)
+            {
+                // fill items
+            }
+            return;
         }
     }
 }
