@@ -5,17 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:specialization_roadmap"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
-        <Label x:Name="subTitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="161" FontSize="18"/>
-        <Label x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="38,103,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
-        <Label x:Name="specializationHeading" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="38,0,0,0" VerticalAlignment="Center" Width="239" FontSize="18"/>
-        <Button x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53" Margin="38,139,0,0" VerticalAlignment="Top" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
-        <Grid HorizontalAlignment="Center" Height="128" Margin="0,238,0,0" VerticalAlignment="Top" Width="724" Background="WhiteSmoke"/>
-        <Button x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" Margin="644,371,0,0" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2"/>
-        <Label x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,144,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>
+        Title="MainWindow" Height="650" Width="800">
+    <Grid RenderTransformOrigin="0.5,0.448">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*" />
+            <RowDefinition Height="72*" />
+            <RowDefinition Height="164*" />
+            <RowDefinition Height="28*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
+        <Label Grid.Row="0" x:Name="subTitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
+        <Label Grid.Row="1" x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="23,9,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
+        <Button Grid.Row="1" x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53"  VerticalAlignment="Center" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2" Margin="23,0,0,0"/>
+        <Label Grid.Row="1" x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,50,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>
 
+        <Label Grid.Row="2" x:Name="specializationHeading" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="23,10,0,0" VerticalAlignment="Top" Width="239" FontSize="18"/>
+        <ItemsControl Grid.Row="2" Margin="20,50,20,20"
+                      ItemsSource="{Binding SpecializationViewModels}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
+                            <TextBlock Text="{Binding ItemTitle}"/>
+                            
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        
+        <Button Grid.Row="3" x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2" 
+                Margin="645,10,0,0"/>
     </Grid>
 </Window>
