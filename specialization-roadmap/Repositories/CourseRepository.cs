@@ -51,8 +51,7 @@ namespace specialization_roadmap.Repositories
                         {
                             int roadmapStep = reader.GetOrdinal("Step");
 
-
-                            RoadmapStepModel step = new()
+                           RoadmapStepModel step = new()
                             {
                                 Title = reader.GetString("Course"),
                                 Description = reader.GetString("Description"),
