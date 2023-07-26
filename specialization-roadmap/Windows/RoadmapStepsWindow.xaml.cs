@@ -1,4 +1,5 @@
-﻿using specialization_roadmap.Entities;
+﻿using MySql.Data.MySqlClient;
+using specialization_roadmap.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,24 +28,24 @@ namespace specialization_roadmap
         public string rTitle { get; set; }
         public string rDescription { get; set; }
         public bool rStatus { get; set; }
-        //public double rProgress { get; set; }
         public List<string> rResources { get; set; }
+
+
 
         public RoadmapStepsWindow(int specializationID, int courseID)
         {
             InitializeComponent();
-            //this.specializationModel = specializationModelPassed;
-            //this.roadmapStepModel = roadmapStepModelPassed;
 
             rTitle = roadmapStepModel.Title;
             rDescription = roadmapStepModel.Description;
             rStatus = roadmapStepModel.Status;
-            //rProgress = roadmapStepModel.Progress
             rResources = roadmapStepModel.ResourcesLinks;
 
             DataContext = this;
 
         }
+
+       
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,11 +54,7 @@ namespace specialization_roadmap
             this.Close();
         }
 
-        /// <summary>
-        /// Change status of the roadmap to completed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void markCompletedButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -65,14 +62,14 @@ namespace specialization_roadmap
         
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel,this.roadmapStepModel);
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(1,1);
             roadmapStepsWindow.Show();
             this.Close();
         }
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel);
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(1,1);
             roadmapStepsWindow.Show();
             this.Close();
         }

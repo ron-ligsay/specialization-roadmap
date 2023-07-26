@@ -23,7 +23,7 @@ namespace specialization_roadmap
     public partial class SpecializationWindow : Window
     {
         public SpecializationController specializationController = new SpecializationController();
-        public SpecializationModel specializationModel = new SpecializationModel();
+        public SpecializationModel specializationModel;
 
         public CourseController roadmapController;
         public CourseModel roadmapStepModel1 = new CourseModel();
@@ -68,7 +68,7 @@ namespace specialization_roadmap
             var model = (TextBlock)sender;
             if (model.Tag is CourseModel courseModel)
             {
-                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel1);
+                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(1, 1);
                 roadmapStepsWindow.Show();
                 this.Close();
             }

@@ -1,4 +1,5 @@
-﻿using specialization_roadmap.Controllers;
+﻿using MySql.Data.MySqlClient;
+using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
 using specialization_roadmap.Repositories;
 using System;
@@ -25,27 +26,146 @@ namespace specialization_roadmap
     public partial class MainWindow : Window
     {
         public SpecializationController specializationController = new SpecializationController();
-        public SpecializationModel specializationModel = new SpecializationModel();
+        public SpecializationModel specializationModel;
 
-        public string sTitle { get; set; }
+        //public string sTitle { get; set; }
         public ObservableCollection<SpecializationModel> specializations { get; set; }
 
 
         public MainWindow()
         {
             InitializeComponent();
+            LoadDataAsync();
+           
             this.DataContext = new SpecializationController();
 
 
+        }
+
+        private async void LoadDataAsync()
+        {
+            this.specializationModel = await getLastSpecializationUsed1();
+        }
+
+        private async Task<SpecializationModel> getLastSpecializationUsed1()
+        {
+            SpecializationModel model = new();
+            DatabaseManager Connection = new DatabaseManager();
+            try
+            {
+                
+                if(!Connection.OpenConnection(true))
+                {
+                    MessageBox.Show("error 1");
+                    return model;
+                }
+                string query = "SELECT * FROM `specialization` WHERE LastOpenDate=(SELECT MAX(LastOpenDate) FROM specialization);";
+                using (MySqlCommand command = new(query, Connection.GetConnection()))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            SpecializationModel smodel = new()
+                            {
+                                Id = reader.GetInt32("SpecializationID"),
+                                Title = reader.GetString("SpecilizationName"),
+                                Description = reader.GetString("SpecializationDescription"),
+                                Status = false,
+                                Rating = 0,
+                                Progress = 0
+                            };
+                            model = smodel;
+                        }
+                    }
+                }
+                MessageBox.Show("catch2");
 
 
+            }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("catch");
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+            this.specializationModel = model;
+            return model;
+        }
+
+
+
+        private async void getLastSpecializationUsed()
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+
+            //SpecializationModel specializationModel = new SpecializationModel();
+            //var specializationModel = databaseManager.ExecuteQuery(query);
+            try
+            {
+
+                databaseManager.OpenConnection();
+                string query = "SELECT * FROM `specialization` WHERE LastOpenDate=(SELECT MAX(LastOpenDate) FROM specialization);";
+                using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
+                {
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        if (reader.HasRows && reader.Read())
+                        {
+                            currentTitle.Text = reader.GetString("SpecializationName");
+                        }
+                        else
+                        {
+                            MessageBox.Show("last specialization reader is empty");
+                        }
+                        while (await reader.ReadAsync())
+                        {
+                            //DataContext = this;
+
+                            SpecializationModel model = new()
+                            {
+                                Id = reader.GetInt32("SpecializationID"),
+                                Title = reader.GetString("SpecilizationName"),
+                                Description = reader.GetString("SpecializationDescription"),
+                                Status = false,
+                                Rating = 0,
+                                Progress = 0
+                            };
+                            //SpecializationModel model = new SpecializationModel();
+                            //model.Id = reader.GetInt32("SpecializationID");
+                            //model.Title = reader.GetString("SpecilizationName");
+                            //model.Description = reader.GetString("SpecializationDescription");
+                            //model.Status = false;
+                            //model.Rating = 0;
+                            //model.Progress = 0;
+                            //this.specializationModel.Id = reader.GetInt32("SpecializationID");
+                            //this.specializationModel.Title = reader.GetString("SpecilizationName");
+                            //this.specializationModel.Description = reader.GetString("SpecializationDescription");
+                            //this.specializationModel.Status = false;
+                            //this.specializationModel.Rating = 0;
+                            //this.specializationModel.Progress = 0;
+
+                            this.specializationModel = model;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("last specialization query error");
+            }
+            return;
 
         }
-    
+
 
         private void Specialization_01_Click(object sender, RoutedEventArgs e)
         {
-            SpecializationWindow specializationWindow = new SpecializationWindow(specializationModel);
+            SpecializationWindow specializationWindow = new SpecializationWindow(this.specializationModel);
             specializationWindow.Show();
             this.Close();
         }
@@ -68,6 +188,12 @@ namespace specialization_roadmap
                 specializationWindow.Show();
                 this.Close();
             }
+        }
+        private void ContinueProgress_click(object sender, MouseButtonEventArgs e)
+        {
+            SpecializationWindow specializationWindow = new SpecializationWindow(this.specializationModel);
+            specializationWindow.Show();
+            this.Close();
         }
     }
 
