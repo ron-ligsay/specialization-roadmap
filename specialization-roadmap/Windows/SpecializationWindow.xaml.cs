@@ -55,7 +55,10 @@ namespace specialization_roadmap
 
             DataContext = this;
 
-            this.DataContext = new RoadmapController(_specializationModel.Id);
+            //this.DataContext = new RoadmapController(_specializationModel.Id);
+
+            RoadmapController roadmap = new RoadmapController(_specializationModel.Id);
+            RoadmapStepsItemControl.ItemsSource = roadmap.RoadmapSteps;
 
 
         }

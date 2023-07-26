@@ -28,7 +28,7 @@
         <Label x:Name="RoadmapStep1TitleLabel_Copy3" Content="{Binding r3Title}" HorizontalAlignment="Left" Height="42" Margin="521,300,0,0" VerticalAlignment="Top" Width="198" FontSize="18"/>
         <Label x:Name="RoadmapStep1TitleLabel_Copy4" Content="{Binding r3Id}" HorizontalAlignment="Left" Height="42" Margin="467,300,0,0" VerticalAlignment="Top" Width="49" FontSize="24"/>-->
 
-        <ItemsControl Margin="400,113,20,20"
+        <ItemsControl x:Name="RoadmapStepsItemControl" Margin="400,113,20,20"
                       ItemsSource="{Binding SpecializationModels}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
