@@ -33,15 +33,16 @@ namespace specialization_roadmap.Repositories
                     return roadmapStepModels;
                 }
 
-                string sql = "SELECT Step, course.CourseName AS Course," +
-                             "course.CourseDescription AS Description FROM roadmap" +
-                             "INNER JOIN specialization ON roadmap.SpecializationID = specialization.SpecializationID" +
-                             "INNER JOIN course ON roadmap.CourseID = course.CourseID" +
-                             "WHERE roadmap.SpecializationID = " +
-                             specializationID;
+                string sql = "SELECT Step, course.CourseName AS Course, " +
+                             "course.CourseDescription AS Description FROM roadmap " +
+                             "INNER JOIN specialization ON roadmap.SpecializationID = specialization.SpecializationID " +
+                             "INNER JOIN course ON roadmap.CourseID = course.CourseID " +
+                             "WHERE roadmap.SpecializationID = @specializationID";
 
-                using (MySqlCommand command = new(sql, Connection.GetConnection()))
+                using (MySqlCommand command = new MySqlCommand(sql, Connection.GetConnection()))
                 {
+                    command.Parameters.AddWithValue("@specializationID", specializationID);
+
                     // command.Parameters.AddWithValue("@count", count);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -53,7 +54,7 @@ namespace specialization_roadmap.Repositories
 
                             RoadmapStepModel step = new()
                             {
-                                Title = reader.GetString("Title"),
+                                Title = reader.GetString("Course"),
                                 Description = reader.GetString("Description"),
                                 Step = roadmapStep
                             };
@@ -64,7 +65,7 @@ namespace specialization_roadmap.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("step error");
+                MessageBox.Show("Step error: "+ ex);
             }
             finally
             {
