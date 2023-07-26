@@ -62,12 +62,7 @@ namespace specialization_roadmap
 
 
         }
-        /// TODO: Pass objects of the Roadmap Step selected or assigned in the Button
-        /// <summary>
-        /// https://www.youtube.com/watch?v=sbwK7NjkwME
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+    
         private void RoadmapStep1_Click(object sender, RoutedEventArgs e)
         {
             
