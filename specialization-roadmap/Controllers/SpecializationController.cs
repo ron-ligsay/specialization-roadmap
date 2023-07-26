@@ -26,8 +26,8 @@ namespace specialization_roadmap.Controllers
             LoadDataAsync();
         }
 
-        private ObservableCollection<specialization> specializationModels { get; set; }
-        public ObservableCollection<specialization> SpecializationModels
+        private ObservableCollection<SpecializationModel> specializationModels { get; set; }
+        public ObservableCollection<SpecializationModel> SpecializationModels
         {
             get { return specializationModels; }
             set

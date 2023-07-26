@@ -57,7 +57,7 @@ namespace specialization_roadmap
 
             //this.DataContext = new RoadmapController(_specializationModel.Id);
 
-            CourseController roadmap = new RoadmapController(_specializationModel.Id);
+            CourseController roadmap = new CourseController(_specializationModel.Id);
             RoadmapStepsItemControl.ItemsSource = roadmap.RoadmapSteps;
 
 
