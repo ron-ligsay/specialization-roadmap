@@ -22,7 +22,7 @@ namespace specialization_roadmap
     {
 
         public SpecializationModel specializationModel = new SpecializationModel();
-        public RoadmapStepModel roadmapStepModel = new RoadmapStepModel();
+        public CourseModel roadmapStepModel = new CourseModel();
 
         public string rTitle { get; set; }
         public string rDescription { get; set; }
@@ -30,11 +30,11 @@ namespace specialization_roadmap
         //public double rProgress { get; set; }
         public List<string> rResources { get; set; }
 
-        public RoadmapStepsWindow(SpecializationModel specializationModelPassed, RoadmapStepModel roadmapStepModelPassed)
+        public RoadmapStepsWindow(int specializationID, int courseID)
         {
             InitializeComponent();
-            this.specializationModel = specializationModelPassed;
-            this.roadmapStepModel = roadmapStepModelPassed;
+            //this.specializationModel = specializationModelPassed;
+            //this.roadmapStepModel = roadmapStepModelPassed;
 
             rTitle = roadmapStepModel.Title;
             rDescription = roadmapStepModel.Description;

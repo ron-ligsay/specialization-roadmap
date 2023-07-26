@@ -22,9 +22,9 @@ namespace specialization_roadmap.Repositories
             this.Connection = connection;
         }
         
-        public async Task<ObservableCollection<RoadmapStepModel>> GetStepModelsAsync(int specializationID)
+        public async Task<ObservableCollection<CourseModel>> GetStepModelsAsync(int specializationID)
         {
-            ObservableCollection<RoadmapStepModel> roadmapStepModels = new ObservableCollection<RoadmapStepModel>();
+            ObservableCollection<CourseModel> roadmapStepModels = new ObservableCollection<CourseModel>();
             try
             {
                 if (!Connection.OpenConnection(true))
@@ -52,7 +52,7 @@ namespace specialization_roadmap.Repositories
                             int roadmapStep = reader.GetOrdinal("Step");
 
 
-                            RoadmapStepModel step = new()
+                            CourseModel step = new()
                             {
                                 Title = reader.GetString("Course"),
                                 Description = reader.GetString("Description"),

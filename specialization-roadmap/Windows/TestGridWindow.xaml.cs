@@ -29,8 +29,8 @@ namespace specialization_roadmap.Windows
         {
             InitializeComponent();
 
-            RoadmapStepModel currentRoadmapStepModel = new RoadmapStepModel();
-            RoadmapStepModel nextRoadmapStepModel = new RoadmapStepModel();
+            CourseModel currentRoadmapStepModel = new CourseModel();
+            CourseModel nextRoadmapStepModel = new CourseModel();
             //RoadmapController roadmapController = new RoadmapController();
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace specialization_roadmap.Entities
 {
 
-    public class RoadmapStepModel : ITemplate
+    public class CourseModel : ITemplate
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
