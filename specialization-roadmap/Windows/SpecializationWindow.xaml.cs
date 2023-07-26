@@ -25,7 +25,7 @@ namespace specialization_roadmap
         public SpecializationController specializationController = new SpecializationController();
         public SpecializationModel specializationModel = new SpecializationModel();
 
-        public RoadmapController roadmapController = new RoadmapController();
+        public RoadmapController roadmapController;
         public RoadmapStepModel roadmapStepModel1 = new RoadmapStepModel();
         public RoadmapStepModel roadmapStepModel2 = new RoadmapStepModel();
         public RoadmapStepModel roadmapStepModel3 = new RoadmapStepModel();
@@ -46,34 +46,18 @@ namespace specialization_roadmap
         {
             InitializeComponent();
 
-
-            //this.specializationModel = specializationController.GetSpecializationByIndex(0);
-            //this.DataContext = specializationController.GetSpecializationByIndex(0);
             this.specializationModel = _specializationModel;
             
             sTitle = this.specializationModel.Title;
             sDescription = this.specializationModel.Description;
             sStatus = this.specializationModel.Status;
             sProgress = this.specializationModel.Progress;
-            
-
-            roadmapStepModel1 = roadmapController.GetRoadmapStepsByIndex(0);
-            roadmapStepModel2 = roadmapController.GetRoadmapStepsByIndex(1);
-            roadmapStepModel3 = roadmapController.GetRoadmapStepsByIndex(2);
-            r1Title = roadmapStepModel1.Title;
-            r2Title = roadmapStepModel2.Title;
-            r3Title = roadmapStepModel3.Title;
-            r1Id = roadmapStepModel1.Id;
-            r2Id = roadmapStepModel2.Id;
-            r3Id = roadmapStepModel3.Id;
-
-
-
-            //RoadmapStep1TitleLabel.Content = specializationController.GetSpecializationByIndex(0).Title;
-            //RoadmapStep1TitleLabel.Content = roadmapStepModel.Title;
-            //RoadmapStep1IdLabel.ContentStringFormat = roadmapStepModel.Id.ToString();
 
             DataContext = this;
+
+            this.DataContext = new RoadmapController(_specializationModel.Id);
+
+
         }
         /// TODO: Pass objects of the Roadmap Step selected or assigned in the Button
         /// <summary>
@@ -83,24 +67,13 @@ namespace specialization_roadmap
         /// <param name="e"></param>
         private void RoadmapStep1_Click(object sender, RoutedEventArgs e)
         {
+            
+
             RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel,this.roadmapStepModel1);
             roadmapStepsWindow.Show();
             this.Close();
         }
 
-        private void RoadmapStep2_Click(object sender, RoutedEventArgs e)
-        {
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel2);
-            roadmapStepsWindow.Show();
-            this.Close();
-        }
-
-        private void RoadmapStep3_Click(object sender, RoutedEventArgs e)
-        {
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel3);
-            roadmapStepsWindow.Show();
-            this.Close();
-        }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {

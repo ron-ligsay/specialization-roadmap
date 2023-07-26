@@ -25,28 +25,20 @@ namespace specialization_roadmap
     public partial class MainWindow : Window
     {
         public SpecializationController specializationController = new SpecializationController();
-        public SpecializationRepository specializationRepository = new SpecializationRepository();
         public SpecializationModel specializationModel = new SpecializationModel();
 
         public string sTitle { get; set; }
-        public ObservableCollection<SpecializationModel> SpecializationViewModels { get; set; }
+        public ObservableCollection<SpecializationModel> specializations { get; set; }
+
 
         public MainWindow()
         {
-            InitializeComponent();   
-            
-            specializationModel = specializationController.GetSpecializationByIndex(0);
-
-            sTitle = specializationModel.Title;
-
-
-            DatabaseManager databaseManager = new DatabaseManager();
+            InitializeComponent();
+            this.DataContext = new SpecializationController();
 
 
 
-            SpecializationViewModels = specializationRepository.GetAllSpecializationTrackObservation();
 
-            DataContext = this;
 
         }
     
@@ -63,6 +55,19 @@ namespace specialization_roadmap
             SpecializationListWindow specializationListWindow = new SpecializationListWindow();
             specializationListWindow.Show();
             this.Close();
+        }
+
+
+        // not  working // making itemcontrol clickable
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var model = (TextBlock)sender;
+            if (model.Tag is SpecializationModel specializationModel)
+            {
+                SpecializationWindow specializationWindow = new SpecializationWindow(specializationModel);
+                specializationWindow.Show();
+                this.Close();
+            }
         }
     }
 

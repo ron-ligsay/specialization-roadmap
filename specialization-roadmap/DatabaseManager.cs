@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace specialization_roadmap
 {
-    internal class DatabaseManager
+    public class DatabaseManager
     {
         private MySqlConnection connection;
         private string connectionString;

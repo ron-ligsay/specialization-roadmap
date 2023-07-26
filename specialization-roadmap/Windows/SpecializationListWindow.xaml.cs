@@ -25,49 +25,11 @@ namespace specialization_roadmap
     /// </summary>
     public partial class SpecializationListWindow : Window
     {
-        //private readonly ViewModel specializationRepository;
-        private readonly SpecializationModel specializationModel;
-        //private readonly SpecializationModel specializationModels;
-        private readonly SpecializationRepository specializationRepository;
-        private readonly SpecializationController specializationController;
-        private readonly ViewModel viewModel;
+
 
         public SpecializationListWindow()
         {
             InitializeComponent();
-
-            //this.viewModel = new ViewModel();
-
-            //this.viewModel.SpecializationModelsIList = this.specializationRepository.specializationModelsIList();
-            
-
-           
-
-
-            //this.specializationRepository.specializationModelsIList = this.specializationController.GetAllSpecializationO();
-
-            //this.DataContext = this.specializationController.GetAllSpecializationTrackObservation();
-            //this.DataContext = this.specializationRepository;
-
-            this.specializationController = new SpecializationController();
-            //SpecializationDataGrid.ItemsSource = this.specializationController.GetAllSpecialization();
-
-            this.specializationRepository = new SpecializationRepository();
-            SpecializationDataGrid.ItemsSource = this.specializationRepository.GetAllSpecializationTrack();
-
-
-            // Dropdown Item ListSpecializationModel
-
-            // using entities model
-            this.specializationController = new SpecializationController();
-            statusComboBox.ItemsSource = this.specializationController.GetAllSpecialization();
-            statusComboBox.DisplayMemberPath = "Title";
-            statusComboBox.SelectedValuePath = "Id";
-
-            // using repository
-            statusComboBox2.ItemsSource = this.specializationController.GetAllSpecialization();
-            statusComboBox2.DisplayMemberPath = "Title";
-            statusComboBox2.SelectedValuePath = "Description";
 
         }
 

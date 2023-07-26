@@ -31,11 +31,11 @@ namespace specialization_roadmap.Windows
 
             RoadmapStepModel currentRoadmapStepModel = new RoadmapStepModel();
             RoadmapStepModel nextRoadmapStepModel = new RoadmapStepModel();
-            RoadmapController roadmapController = new RoadmapController();
+            //RoadmapController roadmapController = new RoadmapController();
 
 
 
-            currentRoadmapStepModel = roadmapController.GetRoadmapStepsByIndex(0);
+            //currentRoadmapStepModel = roadmapController.GetRoadmapStepsByIndex(0);
 
             //bool isContains = currentRoadmapStepModel.containsSpecializationId(1);
 
@@ -43,6 +43,7 @@ namespace specialization_roadmap.Windows
             //TestContent = isContains;
 
             //nextRoadmapStepModel = roadmapController.GetNextRoadmapStep(currentRoadmapStepModel, 1);
+            /*
             nextRoadmapStepModel = roadmapController.GetNextRoadmapStep(1, 1);
 
             currentTitle = currentRoadmapStepModel.Title;
@@ -50,6 +51,7 @@ namespace specialization_roadmap.Windows
 
 
             DataContext = this;
+            */
         }
     }
 }
