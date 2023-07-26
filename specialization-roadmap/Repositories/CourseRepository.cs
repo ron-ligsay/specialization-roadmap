@@ -12,12 +12,12 @@ using System.Windows;
 
 namespace specialization_roadmap.Repositories
 {
-    public class RoadmapRepository
+    public class CourseRepository
     {
 
         private DatabaseManager Connection;
 
-        public RoadmapRepository(DatabaseManager connection)
+        public CourseRepository(DatabaseManager connection)
         {
             this.Connection = connection;
         }

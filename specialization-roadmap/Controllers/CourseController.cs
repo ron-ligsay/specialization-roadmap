@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Controllers
 {
-    public class RoadmapController
+    public class CourseController
     {
-        private readonly RoadmapRepository roadmapRepository;
+        private readonly CourseRepository roadmapRepository;
         private readonly DatabaseManager Connection;
 
-        public RoadmapController(int specializationID)
+        public CourseController(int specializationID)
         {
             Connection = new DatabaseManager();
-            roadmapRepository = new RoadmapRepository(Connection);
+            roadmapRepository = new CourseRepository(Connection);
             LoadStepModelsAsync(specializationID);
         }
 

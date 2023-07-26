@@ -25,7 +25,7 @@ namespace specialization_roadmap
         public SpecializationController specializationController = new SpecializationController();
         public SpecializationModel specializationModel = new SpecializationModel();
 
-        public RoadmapController roadmapController;
+        public CourseController roadmapController;
         public RoadmapStepModel roadmapStepModel1 = new RoadmapStepModel();
         public RoadmapStepModel roadmapStepModel2 = new RoadmapStepModel();
         public RoadmapStepModel roadmapStepModel3 = new RoadmapStepModel();
@@ -57,7 +57,7 @@ namespace specialization_roadmap
 
             //this.DataContext = new RoadmapController(_specializationModel.Id);
 
-            RoadmapController roadmap = new RoadmapController(_specializationModel.Id);
+            CourseController roadmap = new RoadmapController(_specializationModel.Id);
             RoadmapStepsItemControl.ItemsSource = roadmap.RoadmapSteps;
 
 
