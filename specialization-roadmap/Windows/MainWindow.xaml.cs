@@ -36,7 +36,7 @@ namespace specialization_roadmap
         {
             InitializeComponent();
             LoadDataAsync();
-           
+            last();
             this.DataContext = new SpecializationController();
 
 
@@ -44,7 +44,24 @@ namespace specialization_roadmap
 
         private async void LoadDataAsync()
         {
-            this.specializationModel = await getLastSpecializationUsed1();
+            this.specializationModel = await getLastSpecializationUsed();
+        }
+
+        private void last()
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+            databaseManager.OpenConnection(true);
+            string query = "SELECT * FROM `specialization` WHERE LastOpenDate=(SELECT MAX(LastOpenDate) FROM specialization);";
+            MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection());
+            MySqlDataReader reader;
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                specializationModel.Id = reader.GetInt32("SpecializationId");
+                specializationModel.Title = reader.GetString("SpecializationName");
+                specializationModel.Description = reader.GetString("SpecializationDescription");
+            }
+            databaseManager.CloseConnection();
         }
 
         private async Task<SpecializationModel> getLastSpecializationUsed1()
@@ -97,15 +114,15 @@ namespace specialization_roadmap
 
 
 
-        private async void getLastSpecializationUsed()
+        private async Task<SpecializationModel> getLastSpecializationUsed()
         {
             DatabaseManager databaseManager = new DatabaseManager();
-
+            SpecializationModel specialization = new SpecializationModel();
             //SpecializationModel specializationModel = new SpecializationModel();
             //var specializationModel = databaseManager.ExecuteQuery(query);
             try
             {
-
+               
                 databaseManager.OpenConnection();
                 string query = "SELECT * FROM `specialization` WHERE LastOpenDate=(SELECT MAX(LastOpenDate) FROM specialization);";
                 using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
@@ -150,6 +167,7 @@ namespace specialization_roadmap
                             //this.specializationModel.Progress = 0;
 
                             this.specializationModel = model;
+                            specialization = model;
                         }
                     }
                 }
@@ -158,7 +176,12 @@ namespace specialization_roadmap
             {
                 MessageBox.Show("last specialization query error");
             }
-            return;
+            finally
+            {
+                databaseManager.CloseConnection();
+            }
+            this.specializationModel = specialization;
+            return specialization;
 
         }
 
