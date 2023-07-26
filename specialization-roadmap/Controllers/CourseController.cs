@@ -22,8 +22,8 @@ namespace specialization_roadmap.Controllers
             LoadStepModelsAsync(specializationID);
         }
 
-        private ObservableCollection<RoadmapStepModel> roadmapSteps {get; set;}
-        public ObservableCollection<RoadmapStepModel> RoadmapSteps
+        private ObservableCollection<CourseModel> roadmapSteps {get; set;}
+        public ObservableCollection<CourseModel> RoadmapSteps
         {
             get { return roadmapSteps; }
             set { roadmapSteps = value; }

@@ -26,9 +26,9 @@ namespace specialization_roadmap
         public SpecializationModel specializationModel = new SpecializationModel();
 
         public CourseController roadmapController;
-        public RoadmapStepModel roadmapStepModel1 = new RoadmapStepModel();
-        public RoadmapStepModel roadmapStepModel2 = new RoadmapStepModel();
-        public RoadmapStepModel roadmapStepModel3 = new RoadmapStepModel();
+        public CourseModel roadmapStepModel1 = new CourseModel();
+        public CourseModel roadmapStepModel2 = new CourseModel();
+        public CourseModel roadmapStepModel3 = new CourseModel();
 
         public string sTitle { get; set; }
         public string sDescription { get; set; }
@@ -65,11 +65,14 @@ namespace specialization_roadmap
     
         private void RoadmapStep1_Click(object sender, RoutedEventArgs e)
         {
+            var model = (TextBlock)sender;
+            if (model.Tag is CourseModel courseModel)
+            {
+                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, this.roadmapStepModel1);
+                roadmapStepsWindow.Show();
+                this.Close();
+            }
             
-
-            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel,this.roadmapStepModel1);
-            roadmapStepsWindow.Show();
-            this.Close();
         }
 
 
