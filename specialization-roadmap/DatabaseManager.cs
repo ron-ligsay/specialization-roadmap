@@ -38,7 +38,7 @@ namespace specialization_roadmap
                 }
                 catch (MySqlException e)
                 {
-
+                    MessageBox.Show(""+e);
                     return false;
                 }
             }

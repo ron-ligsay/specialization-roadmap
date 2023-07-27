@@ -28,6 +28,7 @@ namespace specialization_roadmap
         public SpecializationController specializationController = new SpecializationController();
         public SpecializationModel specializationModel;
 
+
         //public string sTitle { get; set; }
         public ObservableCollection<SpecializationModel> specializations { get; set; }
 
@@ -38,7 +39,7 @@ namespace specialization_roadmap
             LoadDataAsync();
             last();
             this.DataContext = new SpecializationController();
-
+            
 
         }
 
@@ -102,7 +103,7 @@ namespace specialization_roadmap
             }
             catch (Exception ex) 
             { 
-                MessageBox.Show("catch");
+                MessageBox.Show("catch"+ex);
             }
             finally
             {
@@ -174,7 +175,7 @@ namespace specialization_roadmap
             }
             catch (Exception ex)
             {
-                MessageBox.Show("last specialization query error");
+                MessageBox.Show("last specialization query error"+ex);
             }
             finally
             {
@@ -201,7 +202,6 @@ namespace specialization_roadmap
         }
 
 
-        // not  working // making itemcontrol clickable
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var model = (TextBlock)sender;

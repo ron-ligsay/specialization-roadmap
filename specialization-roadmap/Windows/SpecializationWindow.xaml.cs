@@ -68,7 +68,8 @@ namespace specialization_roadmap
             var model = (TextBlock)sender;
             if (model.Tag is CourseModel courseModel)
             {
-                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(1, 1);
+                MessageBox.Show(courseModel.Title);
+                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel.Id, courseModel.Id);
                 roadmapStepsWindow.Show();
                 this.Close();
             }

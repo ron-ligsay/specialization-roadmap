@@ -21,7 +21,59 @@ namespace specialization_roadmap.Repositories
         {
             this.Connection = connection;
         }
-        
+
+        public async Task<CourseModel> GetStepModelAsync(int specializationID, int step)
+        {
+            CourseModel roadmapStepModel = new CourseModel();
+            try
+            {
+                if (!Connection.OpenConnection(true))
+                {
+                    MessageBox.Show("Unable to connect to course/roadmap step database");
+                    return roadmapStepModel;
+                }
+
+                string sql = "SELECT course.*, roadmap.Step " +
+                             "FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID " +
+                             "WHERE roadmap.SpecializationID = @specializationID AND roadmap.Step = @step " +
+                             "ORDER BY roadmap.Step ASC";
+                             
+
+                using (MySqlCommand command = new MySqlCommand(sql, Connection.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@specializationID", specializationID);
+                    command.Parameters.AddWithValue("@step", step);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            int roadmapStep = reader.GetOrdinal("Step");
+
+
+                            CourseModel course = new()
+                            {
+                                Id = reader.GetInt32("CourseID"),
+                                Title = reader.GetString("CourseName"),
+                                Description = reader.GetString("CourseDescription"),
+                                Step = roadmapStep
+                            };
+                            roadmapStepModel = course;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Step error: " + ex);
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+            return roadmapStepModel;
+        }
+
         public async Task<ObservableCollection<CourseModel>> GetStepModelsAsync(int specializationID)
         {
             ObservableCollection<CourseModel> roadmapStepModels = new ObservableCollection<CourseModel>();
@@ -33,8 +85,8 @@ namespace specialization_roadmap.Repositories
                     return roadmapStepModels;
                 }
 
-                string sql = "SELECT Step, course.CourseName AS Course, " +
-                             "course.CourseDescription AS Description FROM roadmap " +
+                string sql = "SELECT roadmap.Step, course.*" +
+                             "FROM roadmap " +
                              "INNER JOIN specialization ON roadmap.SpecializationID = specialization.SpecializationID " +
                              "INNER JOIN course ON roadmap.CourseID = course.CourseID " +
                              "WHERE roadmap.SpecializationID = @specializationID";
@@ -54,8 +106,9 @@ namespace specialization_roadmap.Repositories
 
                             CourseModel step = new()
                             {
-                                Title = reader.GetString("Course"),
-                                Description = reader.GetString("Description"),
+                                Id = reader.GetInt32(reader.GetOrdinal("CourseID")),
+                                Title = reader.GetString(reader.GetOrdinal("CourseName")),
+                                Description = reader.GetString(reader.GetOrdinal("CourseDescription")),
                                 Step = roadmapStep
                             };
                             roadmapStepModels.Add(step);
