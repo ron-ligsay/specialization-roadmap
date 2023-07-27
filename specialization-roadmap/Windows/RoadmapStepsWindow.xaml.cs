@@ -30,16 +30,10 @@ namespace specialization_roadmap
             this.specializationModel = specialization;
             this.SpecializationID = this.specializationModel.Id;
 
-            //MessageBox.Show("At Roadmap Step Window \r SpecializationID: " + SpecializationID + ", courseID: " + courseID);
-            
-            //this.currentStep = getCourseStep(this.SpecializationID, courseID);
             this.currentStep = step;
             LoadDataAsync(this.SpecializationID, this.currentStep);
 
-            //MessageBox.Show("Current Step " + this.currentStep);
-
-            ///updateContent(this.SpecializationID, this.currentStep);
-            //updateModel(SpecializationID, this.currentStep);
+     
             
             cTitle = this.courseModel.Title;
             cDescription = this.courseModel.Description;
@@ -74,9 +68,6 @@ namespace specialization_roadmap
         public void setCourseStep(int specializationID, int courseID)
         {
             DatabaseManager databaseManager = new DatabaseManager();
-
-            //int step = 0; // Initialize currentStep with a default value
-
             try
             {
                 databaseManager.OpenConnection(true);
@@ -87,8 +78,6 @@ namespace specialization_roadmap
                 {
                     command.Parameters.AddWithValue("@CourseId", courseID);
                     command.Parameters.AddWithValue("@specializationID", specializationID);
-                    //command.ExecuteNonQuery();
-
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows && reader.Read())
@@ -98,9 +87,7 @@ namespace specialization_roadmap
                         else
                         {
                             MessageBox.Show("No roadmap data found for the given specialization and course.");
-                            //step = this.currentStep;
                         }
-                        //MessageBox.Show("thisStep try passing specializationID: " + specializationID + ", and courseID: " + courseID + " to get current step which is " + currentStep);
                     }
                 }
             }
@@ -113,32 +100,9 @@ namespace specialization_roadmap
                 databaseManager.CloseConnection();
             }
 
-            //MessageBox.Show("Current step: " + currentStep);
-            //return step;
         }
 
        
-
-        //public void updateContent(int specializationID, int step)
-        //{
-        //    //MessageBox.Show("At Update Query \r SpecializationID: " + specializationID + ", step: " + step);
-        //    //LoadDataAsync(SpecializationID, step);
-        //    updateModel(SpecializationID, step);
-        //    cTitle = this.courseModel.Title;
-        //    cDescription = this.courseModel.Description;
-        //    //rStatus = courseModel.Status;
-        //    //rResources = courseModel.ResourcesLinks;
-        //    //currentStep = courseModel.Step;
-        //    //MessageBox.Show("After Update Query \r Title: " + this.courseModel.Title+ ", step: " + step);
-        //    DataContext = this;
-
-        //}
-
-        /// <summary>
-        /// Updates the this.CourseModel
-        /// </summary>
-        /// <param name="specializationID"></param>
-        /// <param name="step"></param>
         private void updateModel(int specializationID, int step)
         {
             DatabaseManager databaseManager = new DatabaseManager();
@@ -178,18 +142,14 @@ namespace specialization_roadmap
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.currentStep += 1;
             RoadmapStepsWindow roadmapStepsWindow1 = new RoadmapStepsWindow(this.specializationModel, this.courseModel.Id, this.currentStep, true);
-            //updateContent(this.SpecializationID, this.currentStep);
             roadmapStepsWindow1.Show();
             this.Close();
         }
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.currentStep -= 1;
             RoadmapStepsWindow roadmapStepsWindow2 = new RoadmapStepsWindow(this.specializationModel, this.courseModel.Id, this.currentStep, false);
-            //updateContent(this.SpecializationID, this.currentStep);
             roadmapStepsWindow2.Show();
             this.Close();
         }
