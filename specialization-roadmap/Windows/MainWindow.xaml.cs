@@ -25,7 +25,7 @@ namespace specialization_roadmap
     /// </summary>
     public partial class MainWindow : Window
     {
-        public SpecializationController specializationController = new SpecializationController();
+        public SpecializationController specializationController;
         public SpecializationModel specializationModel;
 
 
@@ -118,8 +118,6 @@ namespace specialization_roadmap
         {
             DatabaseManager databaseManager = new DatabaseManager();
             SpecializationModel specialization = new SpecializationModel();
-            //SpecializationModel specializationModel = new SpecializationModel();
-            //var specializationModel = databaseManager.ExecuteQuery(query);
             try
             {
                
@@ -141,8 +139,6 @@ namespace specialization_roadmap
                         }
                         while (await reader.ReadAsync())
                         {
-                            //DataContext = this;
-
                             SpecializationModel model = new()
                             {
                                 Id = reader.GetInt32("SpecializationID"),
@@ -152,19 +148,6 @@ namespace specialization_roadmap
                                 Rating = 0,
                                 Progress = 0
                             };
-                            //SpecializationModel model = new SpecializationModel();
-                            //model.Id = reader.GetInt32("SpecializationID");
-                            //model.Title = reader.GetString("SpecilizationName");
-                            //model.Description = reader.GetString("SpecializationDescription");
-                            //model.Status = false;
-                            //model.Rating = 0;
-                            //model.Progress = 0;
-                            //this.specializationModel.Id = reader.GetInt32("SpecializationID");
-                            //this.specializationModel.Title = reader.GetString("SpecilizationName");
-                            //this.specializationModel.Description = reader.GetString("SpecializationDescription");
-                            //this.specializationModel.Status = false;
-                            //this.specializationModel.Rating = 0;
-                            //this.specializationModel.Progress = 0;
 
                             this.specializationModel = model;
                             specialization = model;
