@@ -3,9 +3,12 @@ using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace specialization_roadmap
 {
@@ -288,6 +291,15 @@ namespace specialization_roadmap
             }
 
             return resources;    
+        }
+
+        private void resourceListBox_SelectionChanged(object sender, MouseButtonEventArgs e)
+        {
+            var model = (TextBlock)sender;
+            if (model.Tag is Resource resource)
+            {
+                System.Diagnostics.Process.Start(resource.Hyperlink);
+            }
         }
     }
 }

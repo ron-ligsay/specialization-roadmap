@@ -36,11 +36,11 @@
         <Button x:Name="markCompletedButton"  Content="Mark Complete" HorizontalAlignment="Center" Height="29" Margin="0,525,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click" Grid.Column="1" Foreground="Black" BorderBrush="#FFDDDDDD" Background="#FFC3C3C3"/>
         <Label x:Name="label" Grid.Column="1" Content="Course Description" HorizontalAlignment="Left" Height="24" Margin="27,204,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
         <Label x:Name="label_Copy" Grid.Column="1" Content="Resources" HorizontalAlignment="Left" Height="24" Margin="27,317,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
-        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="140" Margin="27,341,0,0" VerticalAlignment="Top" Width="236" d:ItemsSource="{Binding Path=Urls, Mode=OneWay}" Grid.Column="1" BorderBrush="White">
+        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="140" Margin="27,341,0,0" VerticalAlignment="Top" Width="236" d:ItemsSource="{Binding Path=Urls, Mode=OneWay}" Grid.Column="1" BorderBrush="White" >
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="String">
                     <TextBlock>
-                        <Hyperlink NavigateUri="{Binding Hyperlink}">
+                        <Hyperlink NavigateUri="{Binding Hyperlink}" MouseLeftButtonDown="resourceListBox_SelectionChanged">
                             <TextBlock Text="{Binding Text}"/>
                         </Hyperlink>
                     </TextBlock>
