@@ -2,6 +2,8 @@
 using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
 using System;
+using System.Collections.ObjectModel;
+using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -20,7 +22,8 @@ namespace specialization_roadmap
         public string cTitle { get; set; }
         public string cDescription { get; set; }
         public bool rStatus { get; set; }
-        //public List<string> rResources { get; set; }
+
+        //public List<String> rResources { get; set; }
 
 
 
@@ -41,8 +44,8 @@ namespace specialization_roadmap
             //rResources = courseModel.ResourcesLinks;
             //currentStep = courseModel.Step;
             //MessageBox.Show("After Update Query \r Title: " + this.courseModel.Title+ ", step: " + step);
-            
-            DataContext = this;  
+            DataContext = this;
+            fill_listbox(courseID);
         }
 
         public RoadmapStepsWindow(SpecializationModel specialization, int courseID, int step, bool whichStep)
@@ -62,6 +65,7 @@ namespace specialization_roadmap
 
 
             DataContext = this;
+            fill_listbox(courseID);
         }
 
         // setting current step
@@ -135,10 +139,7 @@ namespace specialization_roadmap
             this.Close();
         }
 
-        private void markCompletedButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void markCompletedButton_Click(object sender,RoutedEventArgs e) { }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -221,6 +222,72 @@ namespace specialization_roadmap
                 Connection.CloseConnection();
             }
             return roadmapStepModel;
+        }
+    
+        public void fill_listbox(int CourseID)
+        {
+            LoadSResourcesAsync(CourseID);
+            resourceListBox.ItemsSource = ResourceCollection;
+        }
+
+        public class Resource
+        {
+            public string Text { get; set; }
+            public string Hyperlink { get; set; }
+        }
+        public  ObservableCollection<Resource> Resources { get; set; }
+
+        private ObservableCollection<Resource> resourceCollection { get; set; }
+        public ObservableCollection<Resource> ResourceCollection
+        {
+            get { return resourceCollection; }
+            set { resourceCollection = value; }
+        }
+
+        private async void LoadSResourcesAsync(int CourseID)
+        {
+            ResourceCollection = await this.GetResources(CourseID);
+        }
+
+        public async Task<ObservableCollection<Resource>> GetResources(int CourseID)
+        {
+            ObservableCollection<Resource> resources = new ObservableCollection<Resource>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            try
+            {
+                if(!databaseManager.OpenConnection(true))
+                {
+
+                }
+                string query = "SELECT r.Title, r.Link FROM `resources` AS r WHERE r.CourseID = @courseID";
+                using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@courseID", CourseID);
+                    
+                    using(MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Resource resource = new()
+                            {
+                                Text = reader.GetString("Title"),
+                                Hyperlink = reader.GetString("Link")
+                            };
+                            resources.Add(resource);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to get Link Resources :" + ex);
+            }
+            finally
+            {
+                databaseManager.CloseConnection();
+            }
+
+            return resources;    
         }
     }
 }

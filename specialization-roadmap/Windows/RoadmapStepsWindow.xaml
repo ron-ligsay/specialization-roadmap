@@ -40,9 +40,8 @@
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="String">
                     <TextBlock>
-                        <Hyperlink NavigateUri="{Binding}"
-                                   RequestNavigate="Hyperlink_RequestNavigate">
-                            <TextBlock Text="{Binding}"/>
+                        <Hyperlink NavigateUri="{Binding Hyperlink}">
+                            <TextBlock Text="{Binding Text}"/>
                         </Hyperlink>
                     </TextBlock>
                 </DataTemplate>
