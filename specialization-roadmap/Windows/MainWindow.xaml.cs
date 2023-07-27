@@ -39,9 +39,8 @@ namespace specialization_roadmap
             LoadDataAsync();
             last();
             this.DataContext = new SpecializationController();
-            
-
         }
+       
 
         private async void LoadDataAsync()
         {
