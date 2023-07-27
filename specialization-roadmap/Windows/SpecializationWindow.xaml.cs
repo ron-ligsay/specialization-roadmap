@@ -53,7 +53,6 @@ namespace specialization_roadmap
             var model = (TextBlock)sender;
             if (model.Tag is CourseModel courseModel)
             {
-                //MessageBox.Show(courseModel.Title);
                 int step = getCourseStep(this.specializationModel.Id, courseModel.Id);
                 RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, courseModel.Id, step);
                 roadmapStepsWindow.Show();
