@@ -147,7 +147,7 @@ namespace specialization_roadmap
                             SpecializationModel model = new()
                             {
                                 Id = reader.GetInt32("SpecializationID"),
-                                Title = reader.GetString("SpecilizationName"),
+                                Title = reader.GetString("SpecializationName"),
                                 Description = reader.GetString("SpecializationDescription"),
                                 Status = false,
                                 Rating = 0,
