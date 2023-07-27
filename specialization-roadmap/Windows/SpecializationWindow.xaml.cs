@@ -18,35 +18,21 @@ using System.Windows.Shapes;
 
 namespace specialization_roadmap
 {
-    /// <summary>
-    /// Interaction logic for SpecializationWindow.xaml
-    /// </summary>
+
     public partial class SpecializationWindow : Window
     {
-        public SpecializationController specializationController = new SpecializationController();
         public SpecializationModel specializationModel;
 
-        public CourseController roadmapController;
-        public CourseModel roadmapStepModel1 = new CourseModel();
-        public CourseModel roadmapStepModel2 = new CourseModel();
-        public CourseModel roadmapStepModel3 = new CourseModel();
 
         public string sTitle { get; set; }
         public string sDescription { get; set; }
         public bool sStatus { get; set; }
         public double sProgress { get; set; }
-        public string r1Title { get; set; }
-        public string r2Title { get; set; }
-        public string r3Title { get; set; }
-        public int r1Id { get; set; }
-        public int r2Id { get; set; }
-        public int r3Id { get; set; }
 
 
         public SpecializationWindow(SpecializationModel _specializationModel)
         {
             InitializeComponent();
-            //MessageBox.Show("specialization window title: " + _specializationModel.Title);
             this.specializationModel = _specializationModel;
             
             sTitle = this.specializationModel.Title;
@@ -55,8 +41,6 @@ namespace specialization_roadmap
             sProgress = this.specializationModel.Progress;
 
             DataContext = this;
-
-            //this.DataContext = new RoadmapController(_specializationModel.Id);
 
             CourseController roadmap = new CourseController(_specializationModel.Id);
             RoadmapStepsItemControl.ItemsSource = roadmap.RoadmapSteps;
@@ -74,8 +58,7 @@ namespace specialization_roadmap
                 RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, courseModel.Id, step);
                 roadmapStepsWindow.Show();
                 this.Close();
-            }
-            
+            }      
         }
 
 
@@ -90,20 +73,16 @@ namespace specialization_roadmap
         public int getCourseStep(int specializationID, int courseID)
         {
             DatabaseManager databaseManager = new DatabaseManager();
-
             int currentStep = 0; // Initialize currentStep with a default value
 
             try
             {
                 databaseManager.OpenConnection(true);
-
                 string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @CourseId; ";
-
                 using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
                 {
                     command.Parameters.AddWithValue("@CourseId", courseID);
                     command.Parameters.AddWithValue("@specializationID", specializationID);
-                    //command.ExecuteNonQuery();
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -115,7 +94,6 @@ namespace specialization_roadmap
                         {
                             MessageBox.Show("No roadmap data found for the given specialization and course.");
                         }
-                        //MessageBox.Show("thisStep try passing specializationID: " + specializationID + ", and courseID: " + courseID + " to get current step which is " + currentStep);
                     }
                 }
             }
@@ -127,8 +105,6 @@ namespace specialization_roadmap
             {
                 databaseManager.CloseConnection();
             }
-
-            //MessageBox.Show("Current step: " + currentStep);
             return currentStep;
         }
     }
