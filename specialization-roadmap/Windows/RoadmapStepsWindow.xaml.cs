@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+
 namespace specialization_roadmap
 {
 
@@ -295,11 +296,45 @@ namespace specialization_roadmap
 
         private void resourceListBox_SelectionChanged(object sender, MouseButtonEventArgs e)
         {
-            var model = (TextBlock)sender;
-            if (model.Tag is Resource resource)
+            var model = (ListBox)sender;
+            var listmodel2 = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
+
+            //MessageBox.Show("Opening Link to " + listmodel2 + " \r " + model);
+
+            if (model.Tag != null)
             {
-                System.Diagnostics.Process.Start(resource.Hyperlink);
+                //MessageBox.Show("Opening Link to " + model.Tag);
+                //System.Diagnostics.Process.Start(model.Hyperlink);
+            }
+            else { //MessageBox.Show("item is null");
+                   }
+
+            if (sender is ListBox listbox && listbox.SelectedItem is Resource resource)
+            {
+                if (!string.IsNullOrEmpty(resource.Hyperlink))
+                {
+                    try
+                    {
+                        System.Diagnostics.Process.Start(resource.Hyperlink);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("try 1 did not work");
+                    }
+                    try
+                    {
+                        System.Diagnostics.Process.Start(new ProcessStartInfo(resource.Hyperlink));
+                        e.Handled = true;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("try 2 did not work");
+
+                    }
+                }
+                else { MessageBox.Show("Listbox Empty"); }
             }
         }
+        
     }
 }
