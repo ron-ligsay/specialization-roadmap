@@ -7,36 +7,31 @@
         mc:Ignorable="d"
         Title="RegistrationWindow" Height="494" Width="700">
 
-    <Grid HorizontalAlignment="Center" Width="700" Background="#F5F5F5" Height="449" VerticalAlignment="Top">
-        <Rectangle Stroke="black" Margin="52,114,34,15" RadiusX="50" RadiusY="50" Opacity="0.5">
-            <Rectangle.Fill>
-                <SolidColorBrush Color="Black" Opacity="1"/>
-            </Rectangle.Fill>
-        </Rectangle>
+    <Grid HorizontalAlignment="Center" Width="700" Background="White" Height="449" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
 
-        <Rectangle Stroke="#FF3EB9FF" Margin="44,114,202,21" Fill="#FF3EB9FF" RadiusX="50" RadiusY="50"/>
-        <Rectangle Stroke="#FFFFFF" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="50" RadiusY="50"/>
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+        <Rectangle Stroke="#FFDDDDDD" Margin="44,114,202,21" Fill="#FF3EB9FF" RadiusX="50" RadiusY="50"/>
+        <Rectangle Stroke="#FFDDDDDD" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="50" RadiusY="50"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="15,15,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" BorderBrush="#FFDDDDDD"/>
 
 
 
-        <Label Content="Sign up to Account" HorizontalAlignment="Center" Height="63" Margin="0,7,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36"/>
-        <TextBox x:Name="textBoxName" Text="Username" HorizontalAlignment="Left" Height="25" Margin="92,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10"/>
-        <TextBox x:Name="textBoxEmail" Text="Email Address" HorizontalAlignment="Left" Height="24" Margin="92,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10"/>
+        <Label Content="Sign up to Account" HorizontalAlignment="Center" Height="49" Margin="0,15,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="textBoxName" Text="Username" HorizontalAlignment="Left" Height="25" Margin="92,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10" BorderBrush="White" FontFamily="Bahnschrift Light"/>
+        <TextBox x:Name="textBoxEmail" Text="Email Address" HorizontalAlignment="Left" Height="24" Margin="92,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10" BorderBrush="White" FontFamily="Bahnschrift Light"/>
         <Button Content="Sign Up" HorizontalAlignment="Left" Height="24" Margin="208,387,0,0" VerticalAlignment="Top" Width="52" FontSize="10" Background="#FF0A59A1" Foreground="White" FontWeight="Bold" Click="Button_Click" BorderBrush="#FF0A59A1"/>
 
-        <PasswordBox x:Name="boxPassword" HorizontalAlignment="Left" Height="25" Margin="92,300,0,0" VerticalAlignment="Top" Width="284"/>
-        <PasswordBox x:Name="boxCPassword" HorizontalAlignment="Left" Height="24" Margin="92,347,0,0" VerticalAlignment="Top" Width="284"/>
+        <PasswordBox x:Name="boxPassword" HorizontalAlignment="Left" Height="25" Margin="92,292,0,0" VerticalAlignment="Top" Width="284" BorderBrush="White"/>
+        <PasswordBox x:Name="boxCPassword" HorizontalAlignment="Left" Height="24" Margin="92,331,0,0" VerticalAlignment="Top" Width="284" BorderBrush="White"/>
 
 
-        <Label Content="Course University Guide" HorizontalAlignment="Center" Height="35" Margin="0,57,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+        <Label Content="Course University Guide" HorizontalAlignment="Center" Height="33" Margin="0,59,0,0" VerticalAlignment="Top" Width="206" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Bahnschrift SemiBold"/>
         <Image Margin="420,144,66,50" Source="/Assets/book.png"/>
-        <Label Content="Sign Up" HorizontalAlignment="Left" Height="35" Margin="184,122,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
-        <Label Content="or create a new account" HorizontalAlignment="Left" Height="25" Margin="176,190,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10"/>
+        <Label Content="Sign Up" HorizontalAlignment="Left" Height="35" Margin="184,122,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label Content="or create a new account" HorizontalAlignment="Left" Height="25" Margin="176,190,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10" FontFamily="Bahnschrift Light"/>
         <Image Margin="184,156,483,256" Source="/Assets/facebook.png" RenderTransformOrigin="0.566,0.289"/>
         <Image Margin="251,156,416,256" Source="/Assets/google.png" />
-        <Label Content="Password" HorizontalAlignment="Left" Height="22" Margin="92,278,0,0" VerticalAlignment="Top" Width="54" VerticalContentAlignment="Center" FontSize="10"/>
-        <Label Content="Confirm Password" HorizontalAlignment="Left" Height="22" Margin="92,325,0,0" VerticalAlignment="Top" Width="92" VerticalContentAlignment="Center" FontSize="10"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="25" Margin="92,292,0,0" VerticalAlignment="Top" Width="284" VerticalContentAlignment="Center" FontSize="10" FontFamily="Bahnschrift Light"/>
+        <Label Content="Confirm Password" HorizontalAlignment="Left" Height="24" Margin="92,331,0,0" VerticalAlignment="Top" Width="284" VerticalContentAlignment="Center" FontSize="10" FontFamily="Bahnschrift Light"/>
 
     </Grid>
 </Window>

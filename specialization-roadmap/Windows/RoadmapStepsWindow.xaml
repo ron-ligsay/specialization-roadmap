@@ -7,18 +7,24 @@
         mc:Ignorable="d"
         Title="RoadmapStepsWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
-        <Label x:Name="title2" Content="{Binding rTitle}" HorizontalAlignment="Left" Height="42" Margin="223,131,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
-        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="223,0,0,0" TextWrapping="Wrap" Text="{Binding rDescription}" VerticalAlignment="Center" Width="291"/>
-        <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
-        <Label x:Name="statusContent" Content="{Binding rStatus}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
-        <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
-        <Label x:Name="progressContent" Content="{Binding rProgress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="223,21,0,0" VerticalAlignment="Top" Width="291" Source="/Windows/book.png"/>
-        <Button x:Name="previousButton" Content="Previous" HorizontalAlignment="Left" Height="21" Margin="223,382,0,0" VerticalAlignment="Top" Width="64" Click="previousButton_Click"/>
-        <Button x:Name="nextButton" Content="Next" HorizontalAlignment="Left" Height="21" Margin="450,382,0,0" VerticalAlignment="Top" Width="64" Click="nextButton_Click"/>
-        <Button x:Name="markCompletedButton" Content="Mark Complete" HorizontalAlignment="Left" Height="21" Margin="335,382,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click"/>
-        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="85" Margin="223,275,0,0" VerticalAlignment="Top" Width="145" d:ItemsSource="{Binding rResources}"/>
+        <Rectangle Fill="White" Margin="198,80,262,20" Stroke="White"/>
+
+
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="15,15,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" FontFamily="Bahnschrift Light" Background="#FFDDDDDD" BorderBrush="#FFDDDDDD"/>
+        <Label x:Name="title2" Content="{Binding rTitle}" HorizontalAlignment="Left" Height="71" Margin="223,92,0,0" VerticalAlignment="Top" Width="291" FontSize="24" Background="#FFFF5959" BorderBrush="#FFFF5959" Foreground="{x:Null}"/>
+        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="104" Margin="223,169,0,0" TextWrapping="Wrap" Text="{Binding rDescription}" VerticalAlignment="Top" Width="291" Background="#FFDDDDDD" BorderBrush="#FFDDDDDD"/>
+        <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label x:Name="statusContent" Content="{Binding rStatus}" HorizontalAlignment="Left" Margin="602,120,0,0" VerticalAlignment="Top" Width="102" Background="#FFDDDDDD" Foreground="#FF404040" BorderBrush="#FFDDDDDD"/>
+        <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="61" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label x:Name="progressContent" Content="{Binding rProgress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="#FFDDDDDD" Foreground="#FF404040" BorderBrush="#FFDDDDDD"/>
+        <Button x:Name="previousButton" Content="Previous" HorizontalAlignment="Left" Height="21" Margin="223,383,0,0" VerticalAlignment="Top" Width="64" Click="previousButton_Click" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD"/>
+        <Button x:Name="nextButton" Content="Next" HorizontalAlignment="Left" Height="21" Margin="450,383,0,0" VerticalAlignment="Top" Width="64" Click="nextButton_Click" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD"/>
+        <Button x:Name="markCompletedButton" Content="Mark Complete" HorizontalAlignment="Left" Height="21" Margin="335,383,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD"/>
+        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="86" Margin="223,278,0,0" VerticalAlignment="Top" Width="144" d:ItemsSource="{Binding rResources}" BorderBrush="#FFDDDDDD" Background="#FFDDDDDD" SelectionChanged="resourceListBox_SelectionChanged"/>
+        <Label HorizontalContentAlignment="Center" Content="Welcome, User!" Margin="651,15,15,386" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label Grid.Row="0" x:Name="title" Content="Roadmap Steps" HorizontalAlignment="Left" Height="38" Margin="280,15,0,0" VerticalAlignment="Top" Width="177" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label Content="Web Developer
+               " Margin="322,48,384,363" FontFamily="Bahnschrift SemiBold"/>
 
 
     </Grid>

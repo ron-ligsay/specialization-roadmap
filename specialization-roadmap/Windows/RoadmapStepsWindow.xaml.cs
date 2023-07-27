@@ -76,5 +76,10 @@ namespace specialization_roadmap
             roadmapStepsWindow.Show();
             this.Close();
         }
+
+        private void resourceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
