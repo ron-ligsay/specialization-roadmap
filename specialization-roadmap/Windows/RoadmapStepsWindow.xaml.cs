@@ -59,13 +59,13 @@ namespace specialization_roadmap
         public int thisStep(int specializationID, int courseID)
         {
             DatabaseManager databaseManager = new DatabaseManager();
-            int currentStep = this.currentStep;
 
+            int currentStep = 0; // Initialize currentStep with a default value
 
             try
             {
-
                 databaseManager.OpenConnection(true);
+
                 string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @CourseId; ";
 
                 using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
@@ -73,16 +73,16 @@ namespace specialization_roadmap
                     command.Parameters.AddWithValue("@CourseId", courseID);
                     command.Parameters.AddWithValue("@specializationID", specializationID);
                     //command.ExecuteNonQuery();
+
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-
                         if (reader.HasRows && reader.Read())
                         {
-                            this.currentStep = reader.GetInt32("Step");
+                            currentStep = reader.GetInt32("Step");
                         }
                         else
                         {
-                            MessageBox.Show("last specialization reader is empty");
+                            MessageBox.Show("No roadmap data found for the given specialization and course.");
                         }
                     }
                 }
@@ -95,7 +95,8 @@ namespace specialization_roadmap
             {
                 databaseManager.CloseConnection();
             }
-            this.currentStep = currentStep;
+
+            MessageBox.Show("Current step: " + currentStep);
             return currentStep;
         }
 
@@ -211,7 +212,7 @@ namespace specialization_roadmap
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            //RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(SpecializationID, currentStep + 1);
+            RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(SpecializationID, currentStep );
             currentStep += 1;
             updateContent(this.SpecializationID, this.currentStep+1);
             //roadmapStepsWindow.Show();
@@ -278,15 +279,15 @@ namespace specialization_roadmap
                             //this.Description = reader.GetString("CourseDescription");
                             int roadmapStep = reader.GetOrdinal("Step");
                             MessageBox.Show("" +
-                                 reader.GetString("Course") +
+                                 reader.GetString("CourseName") +
                                  reader.GetOrdinal("Step") +
-                                 reader.GetString("Description") 
+                                 reader.GetString("CourseDescription") 
                                 );
                             
                             CourseModel course = new()
                             {
-                                Title = reader.GetString("Course"),
-                                Description = reader.GetString("Description"),
+                                Title = reader.GetString("CourseName"),
+                                Description = reader.GetString("CourseDescription"),
                                 Step = roadmapStep
                             };
                             roadmapStepModel = course;
