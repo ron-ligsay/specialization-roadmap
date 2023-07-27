@@ -32,7 +32,7 @@
 
 
 
-        <ItemsControl x:Name="RoadmapStepsItemControl" Margin="31,15,20,20" MaxHeight="300" MaxWidth="500"
+        <ItemsControl x:Name="RoadmapStepsItemControl" Margin="31,15,20,20" MaxHeight="300" MaxWidth="500" 
                       ItemsSource="{Binding SpecializationModels}" Grid.Column="1" Grid.Row="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -41,8 +41,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="120" MaxWidth="1000" BorderBrush="Black" BorderThickness="2">
-                        <TextBlock MouseLeftButtonDown="RoadmapStep1_Click" Tag="{Binding}" Background="AliceBlue" Width="auto" Height="auto">
+                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="120" MaxWidth="1000"  BorderThickness="2"  CornerRadius="10,10,10,10" BorderBrush="White">
+                        <TextBlock MouseLeftButtonDown="RoadmapStep1_Click" Tag="{Binding}" Background="White" Width="auto" Height="auto">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
