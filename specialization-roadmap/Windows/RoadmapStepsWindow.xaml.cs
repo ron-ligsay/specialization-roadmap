@@ -13,7 +13,7 @@ namespace specialization_roadmap
     public partial class RoadmapStepsWindow : Window
     {
 
-        public SpecializationModel specializationModel = new SpecializationModel();
+        public SpecializationModel specializationModel;
         public CourseModel courseModel;
         //public CourseModel CourseModel
         //{
@@ -36,21 +36,21 @@ namespace specialization_roadmap
 
 
 
-        public RoadmapStepsWindow(int specializationID, int courseID)
+        public RoadmapStepsWindow(SpecializationModel specialization, int courseID)
         {
             InitializeComponent();
-            MessageBox.Show("At Roadmap Step Window \r SpecializationID: " + specializationID + ", courseID: " + courseID);
+            this.specializationModel = specialization;
+            this.SpecializationID = this.specializationModel.Id;
+            MessageBox.Show("At Roadmap Step Window \r SpecializationID: " + SpecializationID + ", courseID: " + courseID);
            
 
-            this.SpecializationID = specializationID;
+            LoadDataAsync(SpecializationID, this.currentStep);
 
-            LoadDataAsync(specializationID, this.currentStep);
-
-            this.currentStep = thisStep(specializationID, courseID);
+            this.currentStep = thisStep(SpecializationID, courseID);
 
             MessageBox.Show("Current Step " + this.currentStep);
 
-            updateContent(specializationID, this.currentStep);
+            updateContent(SpecializationID, this.currentStep);
 
             DataContext = this;
         }
@@ -198,7 +198,8 @@ namespace specialization_roadmap
         }
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            SpecializationWindow specializationWindow = new SpecializationWindow(specializationModel);
+            MessageBox.Show("going back to specialization model: " + this.specializationModel.Title);
+            SpecializationWindow specializationWindow = new SpecializationWindow(this.specializationModel);
             specializationWindow.Show();
             this.Close();
         }
