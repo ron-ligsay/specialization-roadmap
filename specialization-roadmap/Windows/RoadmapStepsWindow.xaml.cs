@@ -61,7 +61,7 @@ WHERE roadmap.CourseID = 1 AND roadmap.SpecializationID = 1;
 
                 using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
                 {
-                    command.Parameters.AddWithValue("@CourseId ", courseID);
+                    command.Parameters.AddWithValue("@CourseId", courseID);
                     command.Parameters.AddWithValue("@specializationID", specializationID);
                     command.ExecuteNonQuery();
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -80,7 +80,7 @@ WHERE roadmap.CourseID = 1 AND roadmap.SpecializationID = 1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("last specialization query error" + ex);
+                MessageBox.Show("RoadmapStepWindow query error" + ex);
             }
             finally
             {
@@ -109,7 +109,7 @@ WHERE roadmap.CourseID = 1 AND roadmap.SpecializationID = 1;
                              "AND roadmap.SpecializationID = @specializationID";
 
                 using MySqlCommand command1 = new(sql, Connection.GetConnection());
-                command1.Parameters.AddWithValue("@courseId ", courseID);
+                command1.Parameters.AddWithValue("@courseId", courseID);
                 command1.Parameters.AddWithValue("@specializationID", specializationID);
 
                 MySqlDataReader reader = command1.ExecuteReader();
