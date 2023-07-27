@@ -201,9 +201,11 @@ namespace specialization_roadmap
             this.Close();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Signout_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 
