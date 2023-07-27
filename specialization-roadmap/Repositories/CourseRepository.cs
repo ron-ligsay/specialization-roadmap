@@ -95,8 +95,6 @@ namespace specialization_roadmap.Repositories
                 {
                     command.Parameters.AddWithValue("@specializationID", specializationID);
 
-                    // command.Parameters.AddWithValue("@count", count);
-
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (await reader.ReadAsync())
