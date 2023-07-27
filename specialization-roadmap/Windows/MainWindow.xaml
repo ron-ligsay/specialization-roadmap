@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:specialization_roadmap"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="800"
+        Background="#F5F5F5">
     <Grid RenderTransformOrigin="0.5,0.448">
         <Grid.RowDefinitions>
-            <RowDefinition Height="53*" />
-            <RowDefinition Height="72*" />
-            <RowDefinition Height="164*" />
-            <RowDefinition Height="28*" />
+            <RowDefinition Height="58*" />
+            <RowDefinition Height="80*" />
+            <RowDefinition Height="179*" />
+
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
         <Label Grid.Row="0" x:Name="subTitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
         <Label Grid.Row="1" x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="23,9,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
         <!--<Button Grid.Row="1" x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53"  VerticalAlignment="Center" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2" Margin="23,0,0,0"/>
         <Label Grid.Row="1" x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,50,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>-->
-        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2" Margin="23,45,500,0" Height="auto" Width="auto" MaxHeight="120" MaxWidth="500">
-            <TextBlock  Name="currentTitle" Text="{Binding sTitle}"  MouseLeftButtonDown="ContinueProgress_click" />
+
+        <Border Grid.Row="1" BorderThickness="2" Margin="43,45,0,25" Height="auto" Width="252" MaxHeight="120" MaxWidth="300" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Background="White" >
+            <TextBlock  Name="currentTitle" Text="{Binding sTitle}" FontSize="20" Margin="15,5,0,0" MouseLeftButtonDown="ContinueProgress_click" />
         </Border>
-        
+
 
         <Label Grid.Row="2" x:Name="specializationHeading" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="23,10,0,0" VerticalAlignment="Top" Width="239" FontSize="18"/>
         <ItemsControl Name="SpecializationModelsItemControl" Grid.Row="2" Margin="20,50,20,20"
@@ -33,8 +35,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="120" MaxWidth="500" BorderBrush="Black" BorderThickness="2">
-                        <TextBlock MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Tag="{Binding}" Background="AliceBlue" Width="auto" Height="auto">
+                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="100" MaxWidth="300" BorderThickness="2"  CornerRadius="10,10,10,10" BorderBrush="White">
+                        <TextBlock MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Tag="{Binding}" Background="White" Width="auto" Height="auto" >
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
@@ -57,9 +59,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        
-        
-        <Button Grid.Row="3" x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="White" BorderBrush="White" 
-                Margin="645,10,0,0"/>
+
+
+        <Button Grid.Row="2" x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="WhiteSmoke" BorderBrush="WhiteSmoke" 
+                Margin="648,14,0,0" FontWeight="Bold" Foreground="#FF5F5F5F"/>
+        <Button x:Name="button" Content="&lt;- Sign-out" Click="Signout_Click" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="106" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Foreground="#FF464646" FontWeight="Bold"/>
     </Grid>
 </Window>

@@ -200,6 +200,11 @@ namespace specialization_roadmap
             specializationWindow.Show();
             this.Close();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     

@@ -8,15 +8,15 @@
         Title="RegistrationWindow" Height="494" Width="700">
 
     <Grid HorizontalAlignment="Center" Width="700" Background="#F5F5F5" Height="449" VerticalAlignment="Top">
-        <Rectangle Stroke="black" Margin="52,114,34,15" RadiusX="50" RadiusY="50" Opacity="0.5">
+        <Rectangle Stroke="black" Margin="52,114,34,15" RadiusX="20" RadiusY="20" Opacity="0.5">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Black" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <Rectangle Stroke="#FF3EB9FF" Margin="44,114,202,21" Fill="#FF3EB9FF" RadiusX="50" RadiusY="50"/>
-        <Rectangle Stroke="#FFFFFF" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="50" RadiusY="50"/>
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
+        <Rectangle Margin="44,114,39,21" Fill="White" RadiusX="20" RadiusY="20"/>
+        <!--<Rectangle Stroke="#FFFFFF" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="20" RadiusY="20"/>-->
+        <Button x:Name="backButton" Content="&lt;- Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" Background="#FFF8F8F8" BorderBrush="#FFF8F8F8" FontWeight="Bold" Foreground="#FF464646"/>
 
 
 
