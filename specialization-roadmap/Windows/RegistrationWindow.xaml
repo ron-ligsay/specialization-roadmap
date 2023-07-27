@@ -7,36 +7,36 @@
         mc:Ignorable="d"
         Title="RegistrationWindow" Height="494" Width="700" Background="#F5F5F5">
 
-    <Grid HorizontalAlignment="Center" Width="700" Background="#F5F5F5" Height="449" VerticalAlignment="Top">
-        <Rectangle Stroke="black" Margin="52,114,34,15" RadiusX="20" RadiusY="20" Opacity="0.5">
-            <Rectangle.Fill>
-                <SolidColorBrush Color="Black" Opacity="1"/>
-            </Rectangle.Fill>
-        </Rectangle>
+    <Grid HorizontalAlignment="Center" Width="700" Background="White" Height="449" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="186*"/>
+            <RowDefinition Height="263*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Margin="44,114,39,21" Fill="#FF3EB9FF" RadiusX="20" RadiusY="20" Stroke="Black" Grid.RowSpan="2"/>
+        <Rectangle Margin="409,114,39,21" Fill="White" RadiusX="20" RadiusY="20" Stroke="Black" Grid.RowSpan="2"/>
 
-        <Rectangle Margin="44,114,39,21" Fill="White" RadiusX="20" RadiusY="20"/>
         <!--<Rectangle Stroke="#FFFFFF" Margin="393,114,39,21" Fill="#FFFFFF" RadiusX="20" RadiusY="20"/>-->
-        <Button x:Name="backButton" Content="&lt;- Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" Background="#FFF8F8F8" BorderBrush="#FFF8F8F8" FontWeight="Bold" Foreground="#FF464646"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="15,15,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" Background="#FF0A59A1" BorderBrush="Black" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
 
 
 
-        <Label Content="Sign up to Account" HorizontalAlignment="Center" Height="63" Margin="0,7,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36"/>
-        <TextBox x:Name="textBoxName" Text="Username" HorizontalAlignment="Left" Height="25" Margin="92,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10"/>
-        <TextBox x:Name="textBoxEmail" Text="Email Address" HorizontalAlignment="Left" Height="24" Margin="92,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10"/>
-        <Button Content="Sign Up" HorizontalAlignment="Left" Height="24" Margin="208,387,0,0" VerticalAlignment="Top" Width="52" FontSize="10" Background="#FF0A59A1" Foreground="White" FontWeight="Bold" Click="Button_Click" BorderBrush="#FF0A59A1"/>
+        <Label Content="Sign up to Account" HorizontalAlignment="Center" Height="54" Margin="0,15,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="textBoxName" Text="Username" HorizontalAlignment="Left" Height="25" Margin="92,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10" Grid.Row="1" FontFamily="Bahnschrift Light" BorderBrush="Black"/>
+        <TextBox x:Name="textBoxEmail" Text="Email Address" HorizontalAlignment="Left" Height="24" Margin="92,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="284" FontSize="10" Grid.Row="1" FontFamily="Bahnschrift Light" BorderBrush="Black"/>
+        <Button Content="Sign Up" HorizontalAlignment="Left" Height="24" Margin="208,201,0,0" VerticalAlignment="Top" Width="52" Background="#FF0A59A1" Foreground="White" FontWeight="Bold" Click="Button_Click" BorderBrush="Black" Grid.Row="1" FontFamily="Bahnschrift SemiBold"/>
 
-        <PasswordBox x:Name="boxPassword" HorizontalAlignment="Left" Height="25" Margin="92,300,0,0" VerticalAlignment="Top" Width="284"/>
-        <PasswordBox x:Name="boxCPassword" HorizontalAlignment="Left" Height="24" Margin="92,347,0,0" VerticalAlignment="Top" Width="284"/>
+        <PasswordBox x:Name="boxPassword" HorizontalAlignment="Left" Height="26" Margin="92,0,0,0" VerticalAlignment="Center" Width="284" Grid.Row="1" BorderBrush="Black"/>
+        <PasswordBox x:Name="boxCPassword" HorizontalAlignment="Left" Height="24" Margin="92,158,0,0" VerticalAlignment="Top" Width="284" Grid.Row="1" BorderBrush="Black"/>
 
 
-        <Label Content="Course University Guide" HorizontalAlignment="Center" Height="35" Margin="0,57,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-        <Image Margin="420,144,66,50" Source="/Assets/book.png"/>
-        <Label Content="Sign Up" HorizontalAlignment="Left" Height="35" Margin="184,122,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
-        <Label Content="or create a new account" HorizontalAlignment="Left" Height="25" Margin="176,190,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10"/>
-        <Image Margin="184,156,483,256" Source="/Assets/facebook.png" RenderTransformOrigin="0.566,0.289"/>
-        <Image Margin="251,156,416,256" Source="/Assets/google.png" />
-        <Label Content="Password" HorizontalAlignment="Left" Height="22" Margin="92,278,0,0" VerticalAlignment="Top" Width="54" VerticalContentAlignment="Center" FontSize="10"/>
-        <Label Content="Confirm Password" HorizontalAlignment="Left" Height="22" Margin="92,325,0,0" VerticalAlignment="Top" Width="92" VerticalContentAlignment="Center" FontSize="10"/>
+        <Label Content="Course University Guide" HorizontalAlignment="Center" Height="35" Margin="0,57,0,0" VerticalAlignment="Top" Width="424" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Bahnschrift Light"/>
+        <Image Margin="428,139,58,55" Source="/Assets/book.png" Grid.RowSpan="2"/>
+        <Label Content="Sign Up" HorizontalAlignment="Left" Height="35" Margin="184,122,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+        <Label Content="or create a new account" HorizontalAlignment="Left" Height="25" Margin="175,4,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10" Grid.Row="1" FontFamily="Bahnschrift Light"/>
+        <Image Margin="184,156,483,256" Source="/Assets/facebook.png" RenderTransformOrigin="0.566,0.289" Grid.RowSpan="2"/>
+        <Image Margin="251,156,416,256" Source="/Assets/google.png" Grid.RowSpan="2" />
+        <Label Content="Password" HorizontalAlignment="Left" Height="26" Margin="92,0,0,0" VerticalAlignment="Center" Width="284" VerticalContentAlignment="Center" FontSize="10" Grid.Row="1" FontFamily="Bahnschrift Light"/>
+        <Label Content="Confirm Password" HorizontalAlignment="Left" Height="24" Margin="92,158,0,0" VerticalAlignment="Top" Width="284" VerticalContentAlignment="Center" FontSize="10" Grid.Row="1" FontFamily="Bahnschrift Light"/>
 
     </Grid>
 </Window>

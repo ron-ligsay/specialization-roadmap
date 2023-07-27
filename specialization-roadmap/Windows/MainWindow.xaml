@@ -7,27 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="800"
         Background="#F5F5F5">
-    <Grid RenderTransformOrigin="0.5,0.448">
+    <Grid RenderTransformOrigin="0.5,0.448" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="58*" />
             <RowDefinition Height="80*" />
             <RowDefinition Height="179*" />
 
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
-        <Label Grid.Row="0" x:Name="subTitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
-        <Label Grid.Row="1" x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="23,9,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
+        <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="51" Margin="0,15,0,0" VerticalAlignment="Top" Width="330" FontSize="36" FontFamily="Bahnschrift SemiBold"/>
+        <Label Grid.Row="0" x:Name="subTitle" Content="Choose your own path" HorizontalAlignment="Center" Height="34" Margin="0,66,0,0" VerticalAlignment="Top" Width="190" FontSize="18" FontFamily="Bahnschrift Light"/>
+        <Label Grid.Row="1" x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="32" Margin="67,15,0,0" VerticalAlignment="Top" Width="221" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
         <!--<Button Grid.Row="1" x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53"  VerticalAlignment="Center" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2" Margin="23,0,0,0"/>
         <Label Grid.Row="1" x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,50,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>-->
 
-        <Border Grid.Row="1" BorderThickness="2" Margin="43,45,0,25" Height="auto" Width="252" MaxHeight="120" MaxWidth="300" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Background="White" >
-            <TextBlock  Name="currentTitle" Text="{Binding sTitle}" FontSize="20" Margin="15,5,0,0" MouseLeftButtonDown="ContinueProgress_click" />
+        <Border Grid.Row="1" BorderThickness="2" Margin="62,47,0,23" Height="auto" Width="252" MaxHeight="120" MaxWidth="300" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Background="#FF3EB9FF" BorderBrush="Black" >
+            <TextBlock  Name="currentTitle" Text="{Binding sTitle}" FontSize="20" Margin="8,2,8,2" MouseLeftButtonDown="ContinueProgress_click" />
         </Border>
 
 
-        <Label Grid.Row="2" x:Name="specializationHeading" Content="Specialization Track for you." HorizontalAlignment="Left" Height="41" Margin="23,10,0,0" VerticalAlignment="Top" Width="239" FontSize="18"/>
-        <ItemsControl Name="SpecializationModelsItemControl" Grid.Row="2" Margin="20,50,20,20"
-                      ItemsSource="{Binding SpecializationModels}">
+        <Label Grid.Row="2" x:Name="specializationHeading" Content="Specialization Track for you" HorizontalAlignment="Left" Height="36" Margin="68,14,0,0" VerticalAlignment="Top" Width="262" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+        <ItemsControl Name="SpecializationModelsItemControl" Grid.Row="2" Margin="15,50,15,15"
+                      ItemsSource="{Binding SpecializationModels}" Background="#FF3EB9FF" BorderBrush="Black" FontFamily="Bahnschrift Light">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="2" />
@@ -61,8 +61,8 @@
         </ItemsControl>
 
 
-        <Button Grid.Row="2" x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="WhiteSmoke" BorderBrush="WhiteSmoke" 
-                Margin="648,14,0,0" FontWeight="Bold" Foreground="#FF5F5F5F"/>
-        <Button x:Name="button" Content="&lt;- Sign-out" Click="Signout_Click" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="106" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Foreground="#FF464646" FontWeight="Bold"/>
+        <Button Grid.Row="2" x:Name="SpecializationListButton" Content="Specialization List" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="118" Click="SpecializationListButton_Click" Background="#FF0A59A1" BorderBrush="Black" 
+                Margin="652,301,0,0" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift Light"/>
+        <Button x:Name="button" Content="Sign out" Click="Signout_Click" HorizontalAlignment="Left" Height="25" Margin="15,15,0,0" VerticalAlignment="Top" Width="106" Background="#FF0A59A1" BorderBrush="Black" Foreground="White" FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
     </Grid>
 </Window>

@@ -75,5 +75,10 @@ namespace specialization_roadmap
             loginWindow.Show();
             this.Close();
         }
+
+        private void textBoxEmail_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
