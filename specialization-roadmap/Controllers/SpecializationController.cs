@@ -14,9 +14,6 @@ namespace specialization_roadmap.Controllers
 
         private readonly DatabaseManager connection;
         private readonly SpecializationRepository specializationRepository;
-        
-        //for selecting a single model
-        //public SpecializationModel SelectedModel { get; set; }
 
 
         public SpecializationController()
@@ -41,8 +38,5 @@ namespace specialization_roadmap.Controllers
         {
             specializationModels = await specializationRepository.GetSpecializationModelsAsync();
         }
-
-        
-        
     }
 }
