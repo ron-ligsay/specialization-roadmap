@@ -1,4 +1,5 @@
-﻿using specialization_roadmap.Controllers;
+﻿using MySql.Data.MySqlClient;
+using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace specialization_roadmap
         public SpecializationWindow(SpecializationModel _specializationModel)
         {
             InitializeComponent();
-            MessageBox.Show("specialization window title: " + _specializationModel.Title);
+            //MessageBox.Show("specialization window title: " + _specializationModel.Title);
             this.specializationModel = _specializationModel;
             
             sTitle = this.specializationModel.Title;
@@ -68,8 +69,9 @@ namespace specialization_roadmap
             var model = (TextBlock)sender;
             if (model.Tag is CourseModel courseModel)
             {
-                MessageBox.Show(courseModel.Title);
-                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, courseModel.Id);
+                //MessageBox.Show(courseModel.Title);
+                int step = getCourseStep(this.specializationModel.Id, courseModel.Id);
+                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, courseModel.Id, step);
                 roadmapStepsWindow.Show();
                 this.Close();
             }
@@ -83,7 +85,53 @@ namespace specialization_roadmap
             mainWindow.Show();
             this.Close();
         }
-    }
 
-   
+
+        public int getCourseStep(int specializationID, int courseID)
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+
+            int currentStep = 0; // Initialize currentStep with a default value
+
+            try
+            {
+                databaseManager.OpenConnection(true);
+
+                string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @CourseId; ";
+
+                using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@CourseId", courseID);
+                    command.Parameters.AddWithValue("@specializationID", specializationID);
+                    //command.ExecuteNonQuery();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows && reader.Read())
+                        {
+                            currentStep = reader.GetInt32("Step");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No roadmap data found for the given specialization and course.");
+                        }
+                        //MessageBox.Show("thisStep try passing specializationID: " + specializationID + ", and courseID: " + courseID + " to get current step which is " + currentStep);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("RoadmapStepWindow query error" + ex);
+            }
+            finally
+            {
+                databaseManager.CloseConnection();
+            }
+
+            //MessageBox.Show("Current step: " + currentStep);
+            return currentStep;
+        }
+    }
+    
+
 }

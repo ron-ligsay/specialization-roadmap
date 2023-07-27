@@ -8,8 +8,8 @@
         Title="RoadmapStepsWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click"/>
-        <Label x:Name="title2" Content="{Binding Title}" HorizontalAlignment="Left" Height="42" Margin="223,131,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
-        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="223,0,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Center" Width="291"/>
+        <Label x:Name="title2" Content="{Binding cTitle}" HorizontalAlignment="Left" Height="42" Margin="223,131,0,0" VerticalAlignment="Top" Width="291" FontSize="24"/>
+        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="77" Margin="223,0,0,0" TextWrapping="Wrap" Text="{Binding cDescription}" VerticalAlignment="Center" Width="291"/>
         <!--<Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
         <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>-->
         <!--<Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
