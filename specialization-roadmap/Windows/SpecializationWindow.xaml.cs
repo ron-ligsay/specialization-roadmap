@@ -45,7 +45,7 @@ namespace specialization_roadmap
         public SpecializationWindow(SpecializationModel _specializationModel)
         {
             InitializeComponent();
-
+            MessageBox.Show("specialization window title: " + _specializationModel.Title);
             this.specializationModel = _specializationModel;
             
             sTitle = this.specializationModel.Title;
@@ -69,7 +69,7 @@ namespace specialization_roadmap
             if (model.Tag is CourseModel courseModel)
             {
                 MessageBox.Show(courseModel.Title);
-                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel.Id, courseModel.Id);
+                RoadmapStepsWindow roadmapStepsWindow = new RoadmapStepsWindow(this.specializationModel, courseModel.Id);
                 roadmapStepsWindow.Show();
                 this.Close();
             }
