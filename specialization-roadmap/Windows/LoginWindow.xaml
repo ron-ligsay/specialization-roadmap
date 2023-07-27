@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:specialization_roadmap"
         mc:Ignorable="d"
-     Title="RegistrationWindow" Height="494" Width="700">
+     Title="RegistrationWindow" Height="494" Width="700" Background="#F5F5F5">
 
     <Grid HorizontalAlignment="Center" Width="700" Background="#F5F5F5" Height="449" VerticalAlignment="Top">
         <Rectangle Stroke="black" Margin="52,114,34,15" RadiusX="20" RadiusY="20" Opacity="0.5">
