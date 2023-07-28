@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 
+
 namespace specialization_roadmap
 {
 
@@ -58,8 +59,7 @@ namespace specialization_roadmap
         {
             cTitle = this.courseModel.Title;
             cDescription = this.courseModel.Description;
-            //rStatus = courseModel.Status;
-            //rResources = courseModel.ResourcesLinks;
+            rStatus = this.courseModel.Status;
             //currentStep = courseModel.Step;
 
             DataContext = this;
@@ -87,7 +87,7 @@ namespace specialization_roadmap
             this.Close();
         }
 
-        private void markCompletedButton_Click(object sender,RoutedEventArgs e) { }
+        
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -149,6 +149,39 @@ namespace specialization_roadmap
                 else { MessageBox.Show("Listbox Empty"); }
             }
         }
-        
+
+
+
+
+
+
+        private void markCompletedButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is CourseController courseController && courseController.SelectedCourse != null)
+            {
+                // Update the status of the selected cocurse to true "Complete";
+                //courseController.SelectedCourse.Status = true;
+
+                // Notify the UI that the Status property has changed
+                //courseController.NotifyPropertyChange("SelectedCourse");
+                int courseID = courseController.SelectedCourse.Id;
+                bool newStatus = true;
+                //DatabaseManager databaseManager = new DatabaseManager();
+                bool updateSuccessful = courseController.UpdateCourseStatus(courseID, newStatus);
+
+                if (updateSuccessful)
+                {
+                    courseController.SelectedCourse.Status = true;
+                    //courseController.NotifyPropertyChanged("SelectedCourse");
+                    this.courseModel.Status = true;
+                    Console.WriteLine("Status updated successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to update status.");
+                }
+            }
+
+        }
     }
 }

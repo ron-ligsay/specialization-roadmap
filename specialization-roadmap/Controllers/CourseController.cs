@@ -5,7 +5,9 @@ using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,12 +47,12 @@ namespace specialization_roadmap.Controllers
         /// <summary>
         /// Getting the Course
         /// </summary>
-        private CourseModel roadmapStep { get; set; }
-        public CourseModel RoadmapStep
-        {
-            get { return roadmapStep; }
-            set { roadmapStep = value; }
-        }
+        //private CourseModel roadmapStep { get; set; }
+        //public CourseModel RoadmapStep
+        //{
+        //    get { return roadmapStep; }
+        //    set { roadmapStep = value; }
+        //}
 
         /// <summary>
         /// Gets the Course Model need sID, and Step and provide the id, title, description, and step
@@ -72,6 +74,36 @@ namespace specialization_roadmap.Controllers
             Course = courseRepository.GetCourseModel(specializationID, step);
         }
 
+
+        private CourseModel selectedCourse { get; set; }
+        public CourseModel SelectedCourse
+        {
+            get { return selectedCourse;  }
+            set
+            {
+                if (selectedCourse != value)
+                {
+                    selectedCourse = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        
+        private void ExecuteViewCourseDetails(object selectedItem)
+        {
+            if (selectedItem is CourseModel selectedCourse)
+            {
+                SelectedCourse = selectedCourse;
+                // Perform actions based on the selected course
+            }
+        }
+
+        public bool UpdateCourseStatus(int courseID, bool status)
+        {
+            return courseRepository.UpdateCourseStatus(courseID, status);
+        }
+
+
         /// <summary>
         /// Getting the Courses
         /// </summary>
@@ -87,6 +119,8 @@ namespace specialization_roadmap.Controllers
             RoadmapSteps = await courseRepository.GetStepModelsAsync(specializationID);
         }
 
+        
+        
         /// <summary>
         /// Getting the Steps
         /// </summary>
@@ -205,5 +239,12 @@ namespace specialization_roadmap.Controllers
             return ;
         }
         */
+    
+        public event PropertyChangedEventHandler PropertyChanged;
+    
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            //PropertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace specialization_roadmap.Entities
 {
 
-    public class CourseModel : ITemplate
+    public class CourseModel : SpecializationModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        //public int Id { get; set; }
+        //public string Title { get; set; } = string.Empty;
+        //public string Description { get; set; } = string.Empty;
         public int Step { get; set; }
-        public bool Status { get; set; }
-        public int Rating { get; set; }
-        public List<string> ResourcesLinks { get; set; }
+        //public bool Status { get; set; }
+        //public int Rating { get; set; }
+        //public List<string> ResourcesLinks { get; set; }
     }
 }

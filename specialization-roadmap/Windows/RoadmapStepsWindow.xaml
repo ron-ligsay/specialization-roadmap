@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:specialization_roadmap"
+        xmlns:local="clr-namespace:specialization_roadmap" xmlns:local1="clr-namespace:specialization_roadmap.Windows"
         mc:Ignorable="d"
         Title="RoadmapStepsWindow" Height="600" Width="700" Background="#F5F5F5">
     <Grid>
@@ -17,7 +17,7 @@
                 <SolidColorBrush Color="Black" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Stroke="white"  Margin="10,45,10,77" Fill="white" RadiusX="20" RadiusY="20" Grid.Column="1"/>
+        <Rectangle Stroke="White"  Margin="10,45,10,77" Fill="White" RadiusX="20" RadiusY="20" Grid.Column="1"/>
 
 
         <Button x:Name="backButton" Content="&lt;- Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" BorderBrush="#FFF8F8F8" Background="#FFF8F8F8" FontWeight="Bold" Foreground="#FF3C3C3C"/>

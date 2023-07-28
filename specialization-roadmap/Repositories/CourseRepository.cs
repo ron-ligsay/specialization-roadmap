@@ -142,10 +142,10 @@ namespace specialization_roadmap.Repositories
             try
             {
                 databaseManager.OpenConnection(true);
-                string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @CourseId; ";
+                string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @courseId";
                 using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
                 {
-                    command.Parameters.AddWithValue("@CourseId", courseID);
+                    command.Parameters.AddWithValue("@courseId", courseID);
                     command.Parameters.AddWithValue("@specializationID", specializationID);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -171,6 +171,35 @@ namespace specialization_roadmap.Repositories
             }
             return currentStep;
         }
+
+        public bool UpdateCourseStatus(int courseID, bool status)
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+            
+            try
+            {
+                databaseManager.OpenConnection(true);
+
+                string query = "Update course SET CourseStatus = @Status WHERE CourseID = @CourseID";
+
+                using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@CourseID", courseID);
+                    command.Parameters.AddWithValue("@Status", status);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Return true if the update was successful
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
+        }
+
+
 
         /*
         public List<RoadmapStepModel> GetAllRoadmapSteps()

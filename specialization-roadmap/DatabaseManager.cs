@@ -109,6 +109,9 @@ namespace specialization_roadmap
             return dataTable;
         }
 
+        
+
+
         public MySqlConnection GetConnection()
         {
             return this.connection;
