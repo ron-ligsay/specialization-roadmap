@@ -18,7 +18,8 @@ namespace specialization_roadmap.Controllers
     {
         private readonly CourseRepository courseRepository;
         private readonly DatabaseManager Connection;
-
+        
+        // Loads all the Course Models
         public CourseController(int specializationID)
         {
             Connection = new DatabaseManager();
@@ -26,6 +27,7 @@ namespace specialization_roadmap.Controllers
             LoadStepModelsAsync(specializationID);
         }
 
+        // Loads a single Course Model
         public CourseController(int specializationID, int step, bool model)
         {
             Connection = new DatabaseManager();
@@ -33,6 +35,7 @@ namespace specialization_roadmap.Controllers
             LoadCourseDataAsync(specializationID, step);
         }
 
+        // Loads the Step of a Model
         public CourseController(int specializationID, int courseID)
         {
             Connection = new DatabaseManager();

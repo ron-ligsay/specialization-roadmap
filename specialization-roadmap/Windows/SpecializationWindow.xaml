@@ -19,15 +19,15 @@
 
 
 
-        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="title" Content="{Binding sTitle}" HorizontalAlignment="Center" Height="67" Margin="279,23,0,0" VerticalAlignment="Top" Width="352" FontSize="36" FontWeight="Bold"/>
+        <Label Grid.Column="0" Grid.ColumnSpan="2" x:Name="title" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="68" Margin="156,0,0,0" VerticalAlignment="Center" Width="508" FontSize="36" FontWeight="Bold" RenderTransformOrigin="0.476,0.345" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="subTitle" Content="Start your roadmap" HorizontalAlignment="Left" Height="41" Margin="315,67,0,0" VerticalAlignment="Top" Width="170" FontSize="18" Grid.RowSpan="2"/>
 
-        <Label x:Name="Heading" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="31,10,0,0" VerticalAlignment="Top" Width="291" FontSize="24" FontWeight="Bold" Grid.Row="1"/>
-        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="121" Margin="31,57,0,0" TextWrapping="Wrap" Text="{Binding sDescription}" VerticalAlignment="Top" Width="291" BorderBrush="WhiteSmoke" Grid.Row="1" Background="WhiteSmoke"/>
-        <Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="30,187,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold" FontSize="14" Height="29" Grid.Row="1"/>
+        <Label x:Name="Heading" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="31,10,0,0" VerticalAlignment="Top" Width="360" FontSize="24" FontWeight="Bold" Grid.Row="1"/>
+        <TextBox x:Name="description"   HorizontalAlignment="Left" Height="208" Margin="31,57,0,0" TextWrapping="Wrap" Text="{Binding sDescription}" VerticalAlignment="Top" Width="291" BorderBrush="WhiteSmoke" Grid.Row="1" Background="WhiteSmoke"/>
+        <!--<Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="30,187,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold" FontSize="14" Height="29" Grid.Row="1"/>
         <Label x:Name="statusContent" Content="{Binding sStatus}" HorizontalAlignment="Left" Margin="114,188,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF404040" Height="26" Grid.Row="1"/>
         <Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="31,221,0,0" VerticalAlignment="Top" Width="78" FontWeight="Bold" FontSize="14" Height="29" Grid.Row="1"/>
-        <Label x:Name="progressContent" Content="{Binding sProgress}" HorizontalAlignment="Left" Margin="114,224,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF404040" Height="26" Grid.Row="1"/>
+        <Label x:Name="progressContent" Content="{Binding sProgress}" HorizontalAlignment="Left" Margin="114,224,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF404040" Height="26" Grid.Row="1"/>-->
         <Button x:Name="backButton" Content="&lt;- Back" HorizontalAlignment="Left" Height="21" Margin="10,10,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" Background="#FFF8F8F8" BorderBrush="#FFF8F8F8" FontWeight="Bold" Foreground="#FF373737"/>
 
 
@@ -41,8 +41,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="120" MaxWidth="1000"  BorderThickness="2"  CornerRadius="10,10,10,10" BorderBrush="White">
-                        <TextBlock MouseLeftButtonDown="RoadmapStep1_Click" Tag="{Binding}" Background="White" Width="auto" Height="auto">
+                    <Border Padding="0" Margin="5" Height="auto" Width="auto" MaxHeight="120" MaxWidth="1000"  BorderThickness="2"  CornerRadius="10,10,10,10" BorderBrush="#FF6BB1FF">
+                        <TextBlock MouseLeftButtonDown="RoadmapStep1_Click" Tag="{Binding}" Background="#FF6BB1FF" Width="auto" Height="auto">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>

@@ -14,13 +14,13 @@
             <RowDefinition Height="179*" />
 
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="41" Margin="0,21,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
+        <Label Grid.Row="0" x:Name="title" Content="Specialization Track" HorizontalAlignment="Center" Height="51" Margin="0,16,0,0" VerticalAlignment="Top" Width="458" FontSize="36" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="0" x:Name="subTitle" Content="Choose your Track." HorizontalAlignment="Center" Height="41" Margin="0,62,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
         <Label Grid.Row="1" x:Name="continueHeading" Content="Continue your progress" HorizontalAlignment="Left" Height="41" Margin="23,9,0,0" VerticalAlignment="Top" Width="209" FontSize="18"/>
         <!--<Button Grid.Row="1" x:Name="Specialization_01" Content="" HorizontalAlignment="Left" Height="53"  VerticalAlignment="Center" Width="269" Click="Specialization_01_Click" Background="#FFEFEFEF" BorderBrush="#FFD2D2D2" Margin="23,0,0,0"/>
         <Label Grid.Row="1" x:Name="SpecializationTitle" Content="{Binding sTitle}" HorizontalAlignment="Left" Height="42" Margin="38,50,0,0" VerticalAlignment="Top" Width="209" FontSize="24"/>-->
 
-        <Border Grid.Row="1" BorderThickness="2" Margin="43,45,0,25" Height="auto" Width="252" MaxHeight="120" MaxWidth="300" HorizontalAlignment="Left" CornerRadius="10,10,10,10" Background="White" >
+        <Border Grid.Row="1" BorderThickness="2" Margin="43,45,0,25" Height="auto" Width="252" MaxHeight="120" MaxWidth="300" HorizontalAlignment="Left" CornerRadius="10,10,10,10" BorderBrush="#FF6BB1FF" Background="#FF6BB1FF">
             <TextBlock  Name="currentTitle" Text="{Binding sTitle}" FontSize="20" Margin="15,5,0,0" MouseLeftButtonDown="ContinueProgress_click" />
         </Border>
 

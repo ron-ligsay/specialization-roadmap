@@ -29,6 +29,8 @@ namespace specialization_roadmap
         public string cDescription { get; set; }
         public bool rStatus { get; set; }
 
+        public string specializationTitle { get; set; }
+
 
         public RoadmapStepsWindow(SpecializationModel specialization, int courseID, int step)
         {
@@ -57,6 +59,7 @@ namespace specialization_roadmap
 
         public void setContext(int courseID)
         {
+            specializationTitle = this.specializationTitle;
             cTitle = this.courseModel.Title;
             cDescription = this.courseModel.Description;
             rStatus = this.courseModel.Status;
@@ -68,6 +71,7 @@ namespace specialization_roadmap
 
         public void initialize(SpecializationModel specialization, int courseID, int step)
         {
+            this.specializationTitle = specialization.Title;
             this.currentStep = step;
             this.specializationModel = specialization;
             this.SpecializationID = this.specializationModel.Id;

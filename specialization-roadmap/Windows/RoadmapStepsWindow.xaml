@@ -5,38 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:specialization_roadmap" xmlns:local1="clr-namespace:specialization_roadmap.Windows"
         mc:Ignorable="d"
-        Title="RoadmapStepsWindow" Height="600" Width="700" Background="#F5F5F5">
+        Title="RoadmapStepsWindow" Height="650" Width="700" Background="#F5F5F5">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <Rectangle Stroke="black" Margin="10,45,5,74" RadiusX="20" RadiusY="20" Opacity="0.5" Grid.Column="1">
+        <Rectangle Stroke="#FF044FA2" Margin="10,81,5,63" RadiusX="20" RadiusY="20" Opacity="0.5" Grid.Column="1">
             <Rectangle.Fill>
-                <SolidColorBrush Color="Black" Opacity="1"/>
+                <SolidColorBrush Color="#FF044FA2" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Stroke="White"  Margin="10,45,10,77" Fill="White" RadiusX="20" RadiusY="20" Grid.Column="1"/>
+        <Rectangle Stroke="#FF6BB1FF"  Margin="10,81,10,66" Fill="#FF6BB1FF" RadiusX="20" RadiusY="20" Grid.Column="1"/>
 
 
         <Button x:Name="backButton" Content="&lt;- Back" HorizontalAlignment="Left" Height="21" Margin="18,21,0,0" VerticalAlignment="Top" Width="64" Click="backButton_Click" BorderBrush="#FFF8F8F8" Background="#FFF8F8F8" FontWeight="Bold" Foreground="#FF3C3C3C"/>
-        <Label x:Name="title2" Content="{Binding cTitle}" HorizontalAlignment="Center" Height="42" Margin="0,162,0,0" VerticalAlignment="Top" Width="346" FontSize="24" Grid.Column="1"/>
-        <TextBox x:Name="description"   HorizontalAlignment="Center" Height="89" TextWrapping="Wrap" Text="{Binding cDescription}" VerticalAlignment="Top" Width="318" Background="White" BorderBrush="White" Grid.Column="1" Margin="0,228,0,0"/>
+        <Label x:Name="title2" Content="{Binding cTitle}" HorizontalAlignment="Center" Height="42" Margin="0,222,0,0" VerticalAlignment="Top" Width="346" FontSize="24" Grid.Column="1" FontWeight="Bold"/>
+        <TextBox x:Name="description"   HorizontalAlignment="Center" Height="89" TextWrapping="Wrap" Text="{Binding cDescription}" VerticalAlignment="Top" Width="318" Background="#FF6BB1FF" BorderBrush="#FF6BB1FF" Grid.Column="1" Margin="0,293,0,0"/>
         <!--<Label x:Name="statusLabel" Content="Status:" HorizontalAlignment="Left" Margin="541,113,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
         <Label x:Name="statusContent" Content="{Binding Status}" HorizontalAlignment="Left" Margin="602,121,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>-->
         <!--<Label x:Name="progressLabel" Content="Progress:" HorizontalAlignment="Left" Margin="541,144,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold"/>
         <Label x:Name="progressContent" Content="{Binding rProgress}" HorizontalAlignment="Left" Margin="602,152,0,0" VerticalAlignment="Top" Width="102" Background="White" Foreground="#FF404040"/>-->
-        <Rectangle Grid.Column="1" Fill="#FFFF6666" Margin="27,59,27,422" RadiusX="10" RadiusY="10">
+        <Rectangle Grid.Column="1" Fill="White" Margin="27,95,27,422" RadiusX="10" RadiusY="10" Stroke="#FF4088D8">
 
         </Rectangle>
-        <Image x:Name="image" HorizontalAlignment="Center" Height="80" Margin="0,77,0,0" VerticalAlignment="Top" Width="291" Source="/Windows/book.png" OpacityMask="Black" Grid.Column="1"/>
-        <Button Grid.Column="1" x:Name="previousButton" Content="&lt;- Prev" HorizontalAlignment="Left" Height="30" Margin="27,524,0,0" VerticalAlignment="Top" Width="64" Click="previousButton_Click" Foreground="#FF3C3C3C" FontWeight="Bold" Background="WhiteSmoke" BorderBrush="WhiteSmoke"/>
-        <Button Grid.Column="1" x:Name="nextButton" Content="Next ->" HorizontalAlignment="Left" Height="30" Margin="316,524,0,0" VerticalAlignment="Top" Width="64" Click="nextButton_Click" BorderBrush="WhiteSmoke" Foreground="#FF3C3C3C" FontWeight="Bold" Background="WhiteSmoke"/>
-        <Button x:Name="markCompletedButton"  Content="Mark Complete" HorizontalAlignment="Center" Height="29" Margin="0,525,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click"  Foreground="Black" BorderBrush="#FFDDDDDD" Background="#FFC3C3C3" Grid.Column="1"/>
-        <Label x:Name="label" Grid.Column="1" Content="Course Description" HorizontalAlignment="Left" Height="24" Margin="27,204,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
-        <Label x:Name="label_Copy" Grid.Column="1" Content="Resources" HorizontalAlignment="Left" Height="24" Margin="27,317,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
-        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="140" Margin="41,341,0,0" VerticalAlignment="Top" Width="236" d:ItemsSource="{Binding Path=Urls, Mode=OneWay}" Grid.Column="1" BorderBrush="White" PreviewMouseDoubleClick="resourceListBox_SelectionChanged">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="149,101,0,0" VerticalAlignment="Top" Width="111" Source="/Windows/book.png" OpacityMask="Black" Grid.Column="1"/>
+        <Button Grid.Column="1" x:Name="previousButton" Content="&lt;- Prev" HorizontalAlignment="Left" Height="30" Margin="27,578,0,0" VerticalAlignment="Top" Width="64" Click="previousButton_Click" Foreground="#FF3C3C3C" FontWeight="Bold" Background="WhiteSmoke" BorderBrush="WhiteSmoke"/>
+        <Button Grid.Column="1" x:Name="nextButton" Content="Next ->" HorizontalAlignment="Left" Height="30" Margin="316,578,0,0" VerticalAlignment="Top" Width="64" Click="nextButton_Click" BorderBrush="WhiteSmoke" Foreground="#FF3C3C3C" FontWeight="Bold" Background="WhiteSmoke"/>
+        <Button x:Name="markCompletedButton"  Content="Mark Complete" HorizontalAlignment="Center" Height="29" Margin="0,579,0,0" VerticalAlignment="Top" Width="102" Click="markCompletedButton_Click"  Foreground="White" BorderBrush="#FFDDDDDD" Background="#FF044FA2" Grid.Column="1" FontWeight="Bold"/>
+        <Label x:Name="label" Grid.Column="1" Content="Course Description" HorizontalAlignment="Left" Height="24" Margin="27,269,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+        <Label x:Name="label_Copy" Grid.Column="1" Content="Resources" HorizontalAlignment="Left" Height="24" Margin="27,384,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+        <ListBox x:Name="resourceListBox" HorizontalAlignment="Left" Height="140" Margin="41,408,0,0" VerticalAlignment="Top" Width="236" d:ItemsSource="{Binding Path=Urls, Mode=OneWay}" Grid.Column="1" BorderBrush="#FF6BB1FF" PreviewMouseDoubleClick="resourceListBox_SelectionChanged" Background="#FF6BB1FF">
             <!--<Style>
                 <EventSetter Handler="resourceListBox_SelectionChanged"/>
             </Style>-->
@@ -54,6 +54,8 @@
                 <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenHyperlinkCommand}" CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ListBox}}"></MouseBinding>
             </ListBox.InputBindings>-->
         </ListBox>
+        <Label Grid.Row="0" x:Name="title" Content="Course Step" HorizontalAlignment="Center" Height="51" Margin="0,1,0,0" VerticalAlignment="Top" Width="458" FontSize="36" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="1" Grid.Row="0" x:Name="subTitle" Content="{Binding specializationTitle}" HorizontalAlignment="Center" Height="41" Margin="0,45,0,0" VerticalAlignment="Top" Width="248" FontSize="18" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
