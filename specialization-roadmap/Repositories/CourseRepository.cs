@@ -22,9 +22,11 @@ namespace specialization_roadmap.Repositories
             this.Connection = connection;
         }
 
-        public async Task<CourseModel> GetStepModelAsync(int specializationID, int step)
+        public CourseModel GetCourseModel(int specializationID, int step)
         {
+            DatabaseManager Connection = new DatabaseManager();
             CourseModel roadmapStepModel = new CourseModel();
+            //MessageBox.Show("specializationID: " + specializationID + ", step: " + step);
             try
             {
                 if (!Connection.OpenConnection(true))
@@ -35,9 +37,9 @@ namespace specialization_roadmap.Repositories
 
                 string sql = "SELECT course.*, roadmap.Step " +
                              "FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID " +
-                             "WHERE roadmap.SpecializationID = @specializationID AND roadmap.Step = @step " +
-                             "ORDER BY roadmap.Step ASC";
-                             
+                             "WHERE roadmap.SpecializationID = @specializationID AND roadmap.Step = @step ";
+
+
 
                 using (MySqlCommand command = new MySqlCommand(sql, Connection.GetConnection()))
                 {
@@ -46,10 +48,10 @@ namespace specialization_roadmap.Repositories
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        while (await reader.ReadAsync())
+
+                        if (reader.Read())
                         {
                             int roadmapStep = reader.GetOrdinal("Step");
-
 
                             CourseModel course = new()
                             {
@@ -59,6 +61,10 @@ namespace specialization_roadmap.Repositories
                                 Step = roadmapStep
                             };
                             roadmapStepModel = course;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Getting Step Course Model Failed");
                         }
                     }
                 }
@@ -73,6 +79,7 @@ namespace specialization_roadmap.Repositories
             }
             return roadmapStepModel;
         }
+
 
         public async Task<ObservableCollection<CourseModel>> GetStepModelsAsync(int specializationID)
         {
@@ -124,7 +131,47 @@ namespace specialization_roadmap.Repositories
             }
             return roadmapStepModels;
         }
-        
+
+
+        // get courses step
+        public int getCourseStep(int specializationID, int courseID)
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+            int currentStep = 0; // Initialize currentStep with a default value
+
+            try
+            {
+                databaseManager.OpenConnection(true);
+                string query = "SELECT roadmap.Step FROM course JOIN roadmap ON course.CourseID = roadmap.CourseID WHERE roadmap.SpecializationID = @specializationID AND roadmap.CourseID = @CourseId; ";
+                using (MySqlCommand command = new MySqlCommand(query, databaseManager.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@CourseId", courseID);
+                    command.Parameters.AddWithValue("@specializationID", specializationID);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows && reader.Read())
+                        {
+                            currentStep = reader.GetInt32("Step");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No roadmap data found for the given specialization and course.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("RoadmapStepWindow query error" + ex);
+            }
+            finally
+            {
+                databaseManager.CloseConnection();
+            }
+            return currentStep;
+        }
+
         /*
         public List<RoadmapStepModel> GetAllRoadmapSteps()
         {
@@ -148,6 +195,6 @@ namespace specialization_roadmap.Repositories
         */
 
 
-   
+
     }
 }
