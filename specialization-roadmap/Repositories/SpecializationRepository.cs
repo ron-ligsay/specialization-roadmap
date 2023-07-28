@@ -12,15 +12,8 @@ using System.Windows;
 
 namespace specialization_roadmap.Repositories
 {
-    /// TODO: Instead of repository use database
-    /// <summary>
-    /// 
-    /// </summary>
     public class SpecializationRepository
     {
-
-        //private Connection Conn;
-
         private readonly DatabaseManager Connection;
 
         public SpecializationRepository(DatabaseManager connection)
@@ -28,10 +21,11 @@ namespace specialization_roadmap.Repositories
             this.Connection = connection;
         }
 
-        public async Task<ObservableCollection<SpecializationModel>> GetSpecializationModelsAsync()
+        // Gets All the specialization Data
+        public async Task<ObservableCollection<SpecializationModel>> 
+            GetSpecializationModelsAsync()
         {
             ObservableCollection<SpecializationModel> specializationModels = new();
-
             try
             {
                 if(!Connection.OpenConnection(true))
@@ -57,10 +51,7 @@ namespace specialization_roadmap.Repositories
                             };
 
                             specializationModels.Add(specialization);
-
-
                         }
-
                     }
                 }
             }
@@ -75,7 +66,50 @@ namespace specialization_roadmap.Repositories
             return specializationModels;
         }
 
+        // Gets the first limit rows in the specialization Data
+        public async Task<ObservableCollection<SpecializationModel>> 
+            GetSpecializationModelsAsync(int limit)
+        {
+            ObservableCollection<SpecializationModel> specializationModels = new();
+            try
+            {
+                if (!Connection.OpenConnection(true))
+                {
+                    MessageBox.Show("did not connect");
+                    return specializationModels;
+                }
 
+                string sql = "SELECT * FROM `specialization`" +
+                             "ORDER BY specialization.LastOpenDate DESC LIMIT @limit";
 
+                using (MySqlCommand command = new(sql, Connection.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@limit", limit);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            SpecializationModel specialization = new()
+                            {
+                                Id = reader.GetInt32("SpecializationID"),
+                                Title = reader.GetString("SpecializationName"),
+                                Description = reader.GetString("SpecializationDescription")
+                            };
+
+                            specializationModels.Add(specialization);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+            return specializationModels;
+        }
     }
 }

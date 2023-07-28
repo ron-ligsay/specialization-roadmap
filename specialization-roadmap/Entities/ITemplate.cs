@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Entities
 {
-    public interface ITemplate
+    public class ITemplate
     {
-        public static int Id { get; set; }
-        public static string Title { get; set; } = string.Empty;
-        public static string Description { get; set; } = string.Empty;
-        public static bool Status { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public bool Status { get; set; }
 
     }
 }

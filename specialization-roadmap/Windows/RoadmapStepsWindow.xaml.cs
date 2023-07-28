@@ -57,24 +57,23 @@ namespace specialization_roadmap
             setContext(courseID);
         }
 
-        public void setContext(int courseID)
-        {
-            specializationTitle = this.specializationTitle;
-            cTitle = this.courseModel.Title;
-            cDescription = this.courseModel.Description;
-            rStatus = this.courseModel.Status;
-            //currentStep = courseModel.Step;
-
-            DataContext = this;
-            fill_listbox(courseID);
-        }
-
         public void initialize(SpecializationModel specialization, int courseID, int step)
         {
             this.specializationTitle = specialization.Title;
             this.currentStep = step;
             this.specializationModel = specialization;
             this.SpecializationID = this.specializationModel.Id;
+        }
+
+        public void setContext(int courseID)
+        {
+            specializationTitle  = this.specializationTitle;
+            cTitle               = this.courseModel.Title;
+            cDescription         = this.courseModel.Description;
+            rStatus              = this.courseModel.Status;
+
+            DataContext = this;
+            fill_listbox(courseID);
         }
 
         public void fill_listbox(int CourseID)
@@ -89,9 +88,7 @@ namespace specialization_roadmap
             SpecializationWindow specializationWindow = new SpecializationWindow(this.specializationModel);
             specializationWindow.Show();
             this.Close();
-        }
-
-        
+        }        
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {

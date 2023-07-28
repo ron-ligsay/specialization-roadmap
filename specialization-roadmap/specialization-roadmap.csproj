@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Database\" />
+    <Folder Include="aDatabase\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30,6 +30,9 @@ namespace specialization_roadmap
         public SpecializationListWindow()
         {
             InitializeComponent();
+            SpecializationController controller = new SpecializationController();
+            this.DataContext = controller.SpecializationModels;
+            //this.DataContext = controller.SpecializationModels;
 
         }
 

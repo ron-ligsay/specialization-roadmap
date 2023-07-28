@@ -23,6 +23,14 @@ namespace specialization_roadmap.Controllers
             LoadDataAsync();
         }
 
+
+        public SpecializationController(int limit)
+        {
+            connection = new DatabaseManager();
+            specializationRepository = new SpecializationRepository(connection);
+            LoadDataAsync(limit);
+        }
+
         private ObservableCollection<SpecializationModel> specializationModels { get; set; }
         public ObservableCollection<SpecializationModel> SpecializationModels
         {
@@ -37,6 +45,11 @@ namespace specialization_roadmap.Controllers
         private async void LoadDataAsync()
         {
             specializationModels = await specializationRepository.GetSpecializationModelsAsync();
+        }
+
+        private async void LoadDataAsync(int limit)
+        {
+            specializationModels = await specializationRepository.GetSpecializationModelsAsync(limit);
         }
     }
 }
