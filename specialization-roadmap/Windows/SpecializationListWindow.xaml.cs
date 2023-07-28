@@ -1,6 +1,5 @@
 ﻿using specialization_roadmap.Controllers;
 using specialization_roadmap.Entities;
-using specialization_roadmap.Model;
 using specialization_roadmap.Repositories;
 using System;
 using System.Collections.Generic;
