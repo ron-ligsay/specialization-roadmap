@@ -40,7 +40,6 @@ namespace specialization_roadmap.Controllers
                 specializationModels = value;
             }
         }
-
         private async void LoadDataAsync()
         {
             specializationModels = await specializationRepository.GetSpecializationModelsAsync();
