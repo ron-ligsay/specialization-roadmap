@@ -20,15 +20,16 @@ namespace specialization_roadmap
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        private readonly IDatabaseManager databaseManager;
+
         public RegistrationWindow()
         {
             InitializeComponent();
+            databaseManager = new DatabaseManager();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            DatabaseManager databaseManager = new DatabaseManager();
 
             // Get all the values from the textboxes
             string name = textBoxName.Text;

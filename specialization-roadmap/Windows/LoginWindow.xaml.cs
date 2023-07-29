@@ -22,15 +22,16 @@ namespace specialization_roadmap
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly IDatabaseManager databaseManager;
+
         public LoginWindow()
         {
             InitializeComponent();
+            databaseManager = new DatabaseManager();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DatabaseManager databaseManager = new DatabaseManager();
-
             // Get all the values from the textboxes
             string email = textBoxEmail.Text;
             string password = boxPassword.Password;
@@ -47,31 +48,27 @@ namespace specialization_roadmap
                 // Failed login
                 MessageBox.Show("Invalid email or password. Please try again.");
             }
-
         }
 
         private bool IsValidUser(string email, string password)
         {
-            DatabaseManager dbManager = new DatabaseManager();
-
             string query = "SELECT * FROM user WHERE email = @email AND password = @password";
             MySqlParameter[] parameters =
             {
-        new MySqlParameter("@email", email),
-        new MySqlParameter("@password", password)
-            };
+            new MySqlParameter("@email", email),
+            new MySqlParameter("@password", password)
+        };
 
-            DataTable dataTable = dbManager.ExecuteQuery(query, parameters);
+            DataTable dataTable = databaseManager.ExecuteQuery(query, parameters);
             foreach (DataRow row in dataTable.Rows)
             {
                 string column1Value = row["username"].ToString();
-                MessageBox.Show($"Welcome, {column1Value}!"); 
+                MessageBox.Show($"Welcome, {column1Value}!");
                 return true;
             }
 
-            return false; 
+            return false;
         }
-
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -80,4 +77,5 @@ namespace specialization_roadmap
             this.Close();
         }
     }
+
 }

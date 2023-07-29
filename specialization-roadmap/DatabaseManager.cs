@@ -9,7 +9,14 @@ using System.Windows;
 
 namespace specialization_roadmap
 {
-    public class DatabaseManager
+    public abstract class IDatabaseManager 
+    {
+        public abstract void ExecuteNonQuery(string query, params MySqlParameter[] parameters);
+        public abstract DataTable ExecuteQuery(string query, params MySqlParameter[] parameters);
+        public abstract void Dispose();
+    }
+
+    public class DatabaseManager: IDatabaseManager
     {
         private MySqlConnection connection;
         private string connectionString;
@@ -53,7 +60,7 @@ namespace specialization_roadmap
             }
         }
 
-        public void ExecuteNonQuery(string query, params MySqlParameter[] parameters)
+        public override void ExecuteNonQuery(string query, params MySqlParameter[] parameters)
         {
             try
             {
@@ -83,7 +90,7 @@ namespace specialization_roadmap
             CloseConnection();
         }
 
-        public DataTable ExecuteQuery(string query, params MySqlParameter[] parameters)
+        public override DataTable ExecuteQuery(string query, params MySqlParameter[] parameters)
         {
             DataTable dataTable = new DataTable();
             try
@@ -109,7 +116,12 @@ namespace specialization_roadmap
             return dataTable;
         }
 
-        
+        public override void Dispose()
+        {
+            connection.Dispose();
+        }
+
+
 
 
         public MySqlConnection GetConnection()
