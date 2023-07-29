@@ -35,7 +35,7 @@ namespace specialization_roadmap.Repositories
                 }
 
                 string sql = "SELECT * FROM `specialization`"+
-                             "ORDER BY specializationID DESC";
+                             "ORDER BY specializationID ASC";
                 
                 using (MySqlCommand command = new(sql, Connection.GetConnection()))
                 {

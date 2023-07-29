@@ -31,6 +31,7 @@ namespace specialization_roadmap
             InitializeComponent();
             SpecializationController controller = new SpecializationController();
             this.DataContext = controller.SpecializationModels;
+            SpecializationDataGrid.ItemsSource = controller.SpecializationModels;
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
