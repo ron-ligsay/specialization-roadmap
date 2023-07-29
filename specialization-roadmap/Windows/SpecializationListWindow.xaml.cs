@@ -25,14 +25,12 @@ namespace specialization_roadmap
     public partial class SpecializationListWindow : Window
     {
 
-
+        
         public SpecializationListWindow()
         {
             InitializeComponent();
             SpecializationController controller = new SpecializationController();
             this.DataContext = controller.SpecializationModels;
-            //this.DataContext = controller.SpecializationModels;
-
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
