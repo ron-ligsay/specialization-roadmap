@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Entities
 {
-    public class ITemplate
+    public class Study
     {
         public int Id { get; set; }
         public string Title { get; set; }

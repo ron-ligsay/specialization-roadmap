@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace specialization_roadmap.Entities
 {
-    public class SpecializationModel : ITemplate
+    public class SpecializationModel : Study
     {
         public double Rating { get; set; }
         public double Progress { get; set; }

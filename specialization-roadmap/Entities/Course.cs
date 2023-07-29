@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace specialization_roadmap.Entities
 {
 
-    public class CourseModel : ITemplate
+    public class CourseModel : Study
     {
         public int Step { get; set; }
         public List<string> ResourcesLinks { get; set; }
